@@ -1,0 +1,15 @@
+---
+ssh:
+  username: woof
+
+servers:
+  jhartog.dev:
+    - command: 'curl -s -o /dev/null -w "%{http_code}" jhartog.dev'
+      expected: '200'
+    - command: 'sudo systemctl status mariadb | grep "Active: active" -c'
+      expected: '1'
+
+notifiers:
+  type: telegram
+  token: 'foobarbaz'
+  chat_id: 1234513
