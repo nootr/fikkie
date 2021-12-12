@@ -1,6 +1,6 @@
 ---
 ssh:
-  username: woof
+  username: fikkie
 
 servers:
   jhartog.dev:
