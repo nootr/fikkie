@@ -1,4 +1,18 @@
 version: "3.9"
 services:
-  fikkie:
+  fikkie-beat:
     build: .
+    entrypoint: ["celery", "-A", "main", "beat", "-l", "info"]
+    volumes:
+      - type: volume
+        source: broker
+        target: /tmp/broker
+  fikkie-worker:
+    build: .
+    entrypoint: ["celery", "-A", "main", "worker", "-l", "info"]
+    volumes:
+      - type: volume
+        source: broker
+        target: /tmp/broker
+volumes:
+  broker:
