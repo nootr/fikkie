@@ -3,6 +3,7 @@ from celery import Celery
 import os
 
 from .config import BROKER_DIR
+from .watchdog import WatchDog
 
 
 app = Celery(__name__)
@@ -21,13 +22,14 @@ app.conf.update(
     }
 )
 app.conf.beat_schedule = {
-    'poll': {
-        'task': 'fikkie.main.poll',
+    'tick': {
+        'task': 'fikkie.main.tick',
         'schedule': 60
     },
 }
 
 
 @app.task
-def poll():
-    return "FOO"
+def tick():
+    watchdog = WatchDog()
+    watchdog.tick()
