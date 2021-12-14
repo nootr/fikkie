@@ -28,8 +28,7 @@ app.conf.beat_schedule = {
     },
 }
 
-watchdog = WatchDog()
-
 @app.task
 def tick():
+    watchdog = WatchDog()
     watchdog.tick()

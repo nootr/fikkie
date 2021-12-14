@@ -3,11 +3,12 @@ import os
 import yaml
 
 
-__all__ = ['BASE_DIR', 'CONFIG_FILE', 'BROKER_DIR', 'CONFIG']
+__all__ = ['BASE_DIR', 'CONFIG_FILE', 'BROKER_DIR', 'CONFIG', 'DB_FILENAME']
 
 BASE_DIR = os.getenv('FIKKIE_BASE_DIR', os.path.expanduser('~/.fikkie'))
 CONFIG_FILE = os.getenv('FIKKIE_CONFIG', os.path.join(BASE_DIR, 'config.yaml'))
 BROKER_DIR = os.getenv('FIKKIE_BROKER_DIR', os.path.join(BASE_DIR, 'broker'))
+DB_FILENAME = os.getenv('FIKKIE_DB_FILENAME', os.path.join(BASE_DIR, 'db.json'))
 
 CONFIG_TEMPLATE = """---
 ## SSH config

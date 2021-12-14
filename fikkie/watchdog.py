@@ -1,4 +1,3 @@
-import logging
 import os
 
 from .check import Check
@@ -43,5 +42,5 @@ class WatchDog:
                     self.notify(f"[OK] {check.host}: {check.description}")
                 else:
                     self.notify(
-                        f"[NOK] {check.host}: {check.description}\n{stdout} ({stderr})"
+                        f"[NOK] {check.host}: {check.description}\n{stdout} (stderr: {stderr})"
                     )
