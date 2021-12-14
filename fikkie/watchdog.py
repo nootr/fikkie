@@ -39,8 +39,12 @@ class WatchDog:
 
             if stdout_changed:
                 if stdout_expected:
-                    self.notify(f"[OK] {check.host}: {check.description}")
+                    self.notify(f"🟢 {check.host}: {check.description}")
                 else:
                     self.notify(
-                        f"[NOK] {check.host}: {check.description}\n{stdout} (stderr: {stderr})"
+                        f"🔴 {check.host}: {check.description}\n{stdout} (stderr: {stderr})"
                     )
+
+    def heartbeat(self) -> None:
+        """Send a notification to let user know the watchdog's alive."""
+        self.notify("❤️ I'm still awake.")

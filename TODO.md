@@ -1,7 +1,7 @@
 # TODO
 
 ## Before v0.1
-- [ ] Add heartbeat which runs daily
+- [x] Add heartbeat which runs daily
 - [ ] Add CI/CD pipeline
 - [ ] * lint (black?)
 - [ ] * tests (pytest?)

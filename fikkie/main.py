@@ -1,4 +1,5 @@
 from celery import Celery
+from celery.schedules import crontab
 
 import os
 
@@ -26,9 +27,18 @@ app.conf.beat_schedule = {
         'task': 'fikkie.main.tick',
         'schedule': 60
     },
+    'heartbeat': {
+        'task': 'fikkie.main.heartbeat',
+        'schedule': crontab(hour=12, minute=0)  # UTC 12:00
+    },
 }
 
 @app.task
 def tick():
     watchdog = WatchDog()
     watchdog.tick()
+
+@app.task
+def heartbeat():
+    watchdog = WatchDog()
+    watchdog.heartbeat()
