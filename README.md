@@ -23,11 +23,4 @@ The first time you run `fikkie`, a configuration template is placed in
 `~/.fikkie/config.yaml`. Edit this file to specify the servers you want to
 monitor and which notifyers should be used.
 
-## Running fikkie as a daemon
-
-When you've configured fikkie and everything works as expected, you could run
-fikkie as a daemon with the `-d` flag:
-
-```bash
-fikkie -d
-```
+For more info about setting up `fikkie`, see the [documentation](https://nootr.github.io/fikkie).

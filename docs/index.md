@@ -1,37 +1,33 @@
-## Welcome to GitHub Pages
+# Fikkie 🔥
 
-You can use the [editor on GitHub](https://github.com/nootr/fikkie/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+A simple watchdog which monitors servers over SSH.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Simply specify which commands should be run on which servers and what output is
+expected, and fikkie will let you know when something's wrong.
 
-### Markdown
+Notifiers are written as modules, so adding a new notifier is easy! Currently,
+fikkie only supports notifying using a Telegram bot, but adding more options
+(i.e. e-mail, Slack, Discord) should be added before version 1.0.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Installation
 
-```markdown
-Syntax highlighted code block
+Installing fikkie is easy, just clone this repository and run pip:
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```bash
+pip install .
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## Configuration
 
-### Jekyll Themes
+The first time you run `fikkie`, a configuration template is placed in
+`~/.fikkie/config.yaml`. Edit this file to specify the servers you want to
+monitor and which notifyers should be used.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/nootr/fikkie/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Running fikkie as a daemon
 
-### Support or Contact
+When you've configured fikkie and everything works as expected, you could run
+fikkie as a daemon with the `-d` flag:
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+```bash
+fikkie -d
+```
