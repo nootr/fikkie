@@ -2,8 +2,8 @@ from celery import Celery
 
 import os
 
+from .config import BROKER_DIR
 
-BROKER_DIR = "/tmp/broker"
 
 app = Celery(__name__)
 app.conf.update(
@@ -22,7 +22,7 @@ app.conf.update(
 )
 app.conf.beat_schedule = {
     'poll': {
-        'task': 'main.poll',
+        'task': 'fikkie.main.poll',
         'schedule': 60
     },
 }
