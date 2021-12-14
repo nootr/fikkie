@@ -3,7 +3,7 @@ import os
 import subprocess
 
 from .config import CONFIG
-from .notifiers.telegram import Notifier, TelegramNotifier
+from .notifiers import Notifier
 
 
 __all__ = ['WatchDog']
@@ -15,21 +15,12 @@ class WatchDog:
 
     Will keep track of the state to avoid excessive notification spamming.
     """
-    NOTIFIERS = [TelegramNotifier]
-
     def __init__(self):
         self._ssh_config: dict[str, str] = CONFIG.get('ssh', {})
         self._checks: dict[str, list[str]] = CONFIG.get('servers', {})
         self._notifiers: list[Notifier] = [
-            self._get_notifier(**n) for n in CONFIG.get('notifiers', [])
+            Notifier(**n) for n in CONFIG.get('notifiers', [])
         ]
-
-    def _get_notifier(self, type: str, **kwargs) -> Notifier:
-        """Returns a notifier."""
-        for notifier in self.NOTIFIERS:
-            if notifier.TYPE == type:
-                return notifier(**kwargs)
-        raise ValueError(f"Unknown notifier type: {type}")
 
     def notify(self, msg: str) -> None:
         """Sends a notification using all available notifiers."""

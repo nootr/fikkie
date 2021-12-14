@@ -4,11 +4,7 @@ from telegram import Bot
 __all__ = ['Notifier', 'TelegramNotifier']
 
 
-class Notifier:
-    pass
-
-
-class TelegramNotifier(Notifier):
+class TelegramNotifier:
     TYPE = "telegram"
 
     def __init__(self, token: str, chat_id: str):
