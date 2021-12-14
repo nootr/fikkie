@@ -10,6 +10,6 @@ servers:
       expected: '1'
 
 notifiers:
-  type: telegram
-  token: 'foobarbaz'
-  chat_id: 1234513
+  - type: telegram
+    token: 'foobarbaz'
+    chat_id: 1234513
