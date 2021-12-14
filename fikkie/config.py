@@ -3,12 +3,12 @@ import os
 import yaml
 
 
-__all__ = ['BASE_DIR', 'CONFIG_FILE', 'BROKER_DIR', 'CONFIG', 'DB_FILENAME']
+__all__ = ["BASE_DIR", "CONFIG_FILE", "BROKER_DIR", "CONFIG", "DB_FILENAME"]
 
-BASE_DIR = os.getenv('FIKKIE_BASE_DIR', os.path.expanduser('~/.fikkie'))
-CONFIG_FILE = os.getenv('FIKKIE_CONFIG', os.path.join(BASE_DIR, 'config.yaml'))
-BROKER_DIR = os.getenv('FIKKIE_BROKER_DIR', os.path.join(BASE_DIR, 'broker'))
-DB_FILENAME = os.getenv('FIKKIE_DB_FILENAME', os.path.join(BASE_DIR, 'db.json'))
+BASE_DIR = os.getenv("FIKKIE_BASE_DIR", os.path.expanduser("~/.fikkie"))
+CONFIG_FILE = os.getenv("FIKKIE_CONFIG", os.path.join(BASE_DIR, "config.yaml"))
+BROKER_DIR = os.getenv("FIKKIE_BROKER_DIR", os.path.join(BASE_DIR, "broker"))
+DB_FILENAME = os.getenv("FIKKIE_DB_FILENAME", os.path.join(BASE_DIR, "db.json"))
 
 CONFIG_TEMPLATE = """---
 ## SSH config
@@ -50,8 +50,8 @@ CONFIG_TEMPLATE = """---
 needed_dirs = [
     BASE_DIR,
     BROKER_DIR,
-    os.path.join(BROKER_DIR, 'out'),
-    os.path.join(BROKER_DIR, 'processed')
+    os.path.join(BROKER_DIR, "out"),
+    os.path.join(BROKER_DIR, "processed"),
 ]
 for directory in needed_dirs:
     if not os.path.isdir(directory):
@@ -62,7 +62,7 @@ for directory in needed_dirs:
 def create_config_template(filename) -> None:
     """Create a config template at the given location."""
     try:
-        with open(filename, 'x') as f:
+        with open(filename, "x") as f:
             f.write(CONFIG_TEMPLATE)
     except Exception as e:
         logging.error(f"Could not write config template at {filename}: {e}")
@@ -70,8 +70,9 @@ def create_config_template(filename) -> None:
 
 
 def load_config(filename: str) -> dict:
+    """Parse the config from a given file."""
     try:
-        with open(filename, 'r') as f:
+        with open(filename, "r") as f:
             return yaml.safe_load(f)
     except FileNotFoundError as e:
         create_config_template(filename)

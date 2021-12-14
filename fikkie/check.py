@@ -8,6 +8,7 @@ class Check:
     """
     A command which is run on a given host with a certain expected output.
     """
+
     def __init__(self, host, username, command, expected, description=""):
         self.host = host
         self.username = username
@@ -49,9 +50,7 @@ class Check:
         Stdout = Query()
 
         if self._last_stdout:
-            db.update(
-                {"id": self._db_id, "stdout": value}, Stdout.id == self._db_id
-            )
+            db.update({"id": self._db_id, "stdout": value}, Stdout.id == self._db_id)
         else:
             db.insert({"id": self._db_id, "stdout": value})
 
