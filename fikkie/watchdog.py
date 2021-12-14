@@ -1,7 +1,7 @@
 import logging
 import os
-import subprocess
 
+from .check import Check
 from .config import CONFIG
 from .notifiers import Notifier
 
@@ -17,7 +17,13 @@ class WatchDog:
     """
     def __init__(self):
         self._ssh_config: dict[str, str] = CONFIG.get('ssh', {})
-        self._checks: dict[str, list[str]] = CONFIG.get('servers', {})
+
+        servers = CONFIG.get('servers', {})
+        self._checks: list[Check] = [
+            Check(h, self._ssh_config.get('username', 'fikkie'), **c)
+            for h, cs in CONFIG.get('servers', {}).items() for c in cs
+        ]
+
         self._notifiers: list[Notifier] = [
             Notifier(**n) for n in CONFIG.get('notifiers', [])
         ]
@@ -27,41 +33,15 @@ class WatchDog:
         for notifier in self._notifiers:
             notifier.notify(msg)
 
-    def _execute_ssh_command(self, host: str, command: str) -> str:
-        """Executes an SSH command and returns stdout and stderr."""
-        username = self._ssh_config.get("username", "fikkie")
-
-        result = subprocess.run(
-            [
-                "ssh",
-                "-l",
-                username,
-                host,
-                "--",
-                command,
-            ],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-        )
-
-        def _decode(b):
-            return b.decode("utf-8").strip() if b else ""
-
-        return _decode(result.stdout), _decode(result.stderr)
-
     def tick(self) -> None:
         """Perform checks."""
-        for hostname, checks in self._checks.items():
-            for check in checks:
-                logging.debug(f"{hostname}: {check['command']}")
-                stdout, stderr = self._execute_ssh_command(
-                    hostname, check['command']
-                )
-                logging.debug(f"Expected: '{check['expected']}'")
-                logging.debug(f"Result: '{stdout}'")
-                logging.debug(f"stderr: '{stderr}'")
+        for check in self._checks:
+            stdout_changed, stdout_expected, stdout, stderr = check.run()
 
-                if stdout == check["expected"]:
-                    self.notify(f"[OK] {hostname}: {stdout}")
+            if stdout_changed:
+                if stdout_expected:
+                    self.notify(f"[OK] {check.host}: {check.description}")
                 else:
-                    self.notify(f"[NOK] {hostname}: {stdout} ({stderr})")
+                    self.notify(
+                        f"[NOK] {check.host}: {check.description}\n{stdout} ({stderr})"
+                    )

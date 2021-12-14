@@ -27,9 +27,11 @@ CONFIG_TEMPLATE = """---
 #
 # servers:
 #   jhartog.dev:
-#     - command: 'curl -s -o /dev/null -w "%{http_code}" jhartog.dev'
+#     - description: "HTTP code jhartog.dev"
+#       command: 'curl -s -o /dev/null -w "%{http_code}" jhartog.dev'
 #       expected: '200'
-#     - command: 'sudo systemctl status mariadb | grep "Active: active" -c'
+#     - description: "MariaDB"
+#       command: 'sudo systemctl status mariadb | grep "Active: active" -c'
 #       expected: '1'
 
 ## Notifiers
