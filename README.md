@@ -1,5 +1,7 @@
 # Fikkie 🔥
 
+![CI/CD](https://github.com/nootr/fikkie/actions/workflows/main.yml/badge.svg)
+
 A simple watchdog which monitors servers over SSH.
 
 Simply specify which commands should be run on which servers and what output is
