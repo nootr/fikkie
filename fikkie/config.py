@@ -15,7 +15,7 @@ def load_config(filename: str) -> dict:
     """Parse the config from a given file."""
     try:
         with open(filename, "r") as f:
-            return yaml.safe_load(f)
+            return yaml.safe_load(f) or {}
     except FileNotFoundError as e:
         logging.warning("Please run `fikkie --init`.")
         exit(1)
