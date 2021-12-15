@@ -40,7 +40,7 @@ class WatchDog:
 
             if stdout_changed:
                 if stdout_expected:
-                    self.notify(f"🟢 {check.host}: {check.description}")
+                    self.notify(f"🔥 {check.host}: {check.description}")
                 else:
                     self.notify(
                         f"🔴 {check.host}: {check.description}\n{stdout} (stderr: {stderr})"
