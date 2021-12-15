@@ -29,10 +29,11 @@ expected, and fikkie will let you know when something's wrong.
 
 ## Installation
 
-Install fikkie using pip:
+Install fikkie using pip and initialize fikkie:
 
 ```bash
 pip install fikkie
+fikkie --init
 ```
 
 ## Config example

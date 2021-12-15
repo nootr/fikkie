@@ -39,6 +39,7 @@ Installing fikkie is easy!
 
 ```bash
 pip install fikkie
+fikkie --init
 ```
 
 
@@ -63,7 +64,7 @@ fikkie ALL=(ALL) NOPASSWD: /path/to/command1, /path/to/command2
 
 ### Setting up fikkie
 
-The first time you run `fikkie`, a configuration template is placed in
+When you run `fikkie --init`, a configuration template is placed in
 `~/.fikkie/config.yaml`. Edit this file to specify the servers you want to
 monitor and which notifiers should be used. Go to the
 [API Reference](#api-reference) for more info.
@@ -98,6 +99,7 @@ fikkie -d
 
 ### CLI flags
 
+* **fikkie -i/--init**: Set up the ~/.fikkie directory.
 * **fikkie -d/--daemonize**: Start a fikkie daemon.
 * **fikkie -h/--help**: Show the help/usage text.
 
