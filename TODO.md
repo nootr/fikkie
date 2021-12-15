@@ -7,7 +7,7 @@
 - [x] * tests (pytest?)
 - [x] Improve docs
 - [x] Add changelog
-- [ ] Upload to PyPi
+- [x] Upload to PyPi
 
 ## Before v1.0
 - [ ] Write contribution guide
