@@ -53,7 +53,7 @@ generate a key using `ssh-keygen` and copy the public key to
 ### Adding user
 
 This step is optional. However, it might be a good idea to create a separate
-user for fikkie on the target host(s) with limited `sudo` permissions.
+user for fikkie on the target host(s) with limited sudo permissions.
 
 Open the sudoers file with `sudo visudo` and add the following line:
 
@@ -98,28 +98,22 @@ fikkie -d
 
 ### CLI flags
 
-**fikkie -d** | **fikkie --daemonize**
-
-Start a fikkie daemon.
-
-
-**fikkie -h** | **fikkie --help**
-
-Show the help/usage text.
+* **fikkie -d/--daemonize**: Start a fikkie daemon.
+* **fikkie -h/--help**: Show the help/usage text.
 
 ### Environment variables
 
-**FIKKIE_BASE_DIR** *(default: "~/.fikkie")*: Fikkie's working directory.
-**FIKKIE_CONFIG** *(default: "~/.fikkie/config.yaml")*: The configuration
+* **FIKKIE_BASE_DIR** *(default: "~/.fikkie")*: Fikkie's working directory.
+* **FIKKIE_CONFIG** *(default: "~/.fikkie/config.yaml")*: The configuration
 file.
-**FIKKIE_BROKER_DIR** *(default: "~/.fikkie/broker")*: A directory containing
+* **FIKKIE_BROKER_DIR** *(default: "~/.fikkie/broker")*: A directory containing
 the celery broker data.
-**FIKKIE_DB_FILENAME** *(default: "~/.fikkie/db.json")*: The database file.
+* **FIKKIE_DB_FILENAME** *(default: "~/.fikkie/db.json")*: The database file.
 
 
 ### Configuration options
 
-**ssh.username** *(default: "fikkie")*: The SSH username which fikkie uses.
+* **ssh.username** *(default: "fikkie")*: The SSH username which fikkie uses.
 
 Example:
 
@@ -128,9 +122,9 @@ ssh:
   username: fikkie
 ```
 
-**servers.<hostname>.description**: A human-readable description of the test.
-**servers.<hostname>.command**: The command to execute.
-**servers.<hostname>.expected**: The expected stdout output.
+* **servers.HOSTNAME.description**: A human-readable description of the test.
+* **servers.HOSTNAME.command**: The command to execute.
+* **servers.HOSTNAME.expected**: The expected stdout output.
 
 Example:
 
@@ -145,12 +139,12 @@ servers:
       expected: '200'
 ```
 
-**notifiers**: A list of notifier objects. Parameters may differ per
+* **notifiers**: A list of notifier objects. Parameters may differ per
 notifier.
 
 Example:
 
-```
+```yaml
 notifier:
   - type: telegram
     token: '1234:abcd'
