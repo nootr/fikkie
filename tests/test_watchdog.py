@@ -21,7 +21,7 @@ def mock_config():
                 "token": "1234:abcd",
                 "chat_id": 1234,
             }
-        ]
+        ],
     }
 
 
@@ -34,11 +34,12 @@ def mock_notifier(mocker):
 def mock_check(mocker):
     yield mocker.Mock()
 
+
 @pytest.fixture
 def watchdog(mocker, mock_config, mock_notifier, mock_check):
-    mocker.patch('fikkie.watchdog.CONFIG', mock_config)
-    mocker.patch('fikkie.watchdog.Notifier', return_value=mock_notifier)
-    mocker.patch('fikkie.watchdog.Check', return_value=mock_check)
+    mocker.patch("fikkie.watchdog.CONFIG", mock_config)
+    mocker.patch("fikkie.watchdog.Notifier", return_value=mock_notifier)
+    mocker.patch("fikkie.watchdog.Check", return_value=mock_check)
     yield WatchDog()
 
 

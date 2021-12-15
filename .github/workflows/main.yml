@@ -39,4 +39,4 @@ jobs:
         pip install -r test-requirements.txt
     - name: Test
       run: |
-        pytest
+        FIKKIE_CONFIG=/dev/null pytest
