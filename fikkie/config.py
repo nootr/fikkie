@@ -27,13 +27,13 @@ CONFIG_TEMPLATE = """---
 # Example:
 #
 # servers:
-#   jhartog.dev:
-#     - description: "HTTP code jhartog.dev"
-#       command: 'curl -s -o /dev/null -w "%{http_code}" jhartog.dev'
-#       expected: '200'
-#     - description: "MariaDB"
+#   primary.foo.com:
+#     - description: 'MariaDB'
 #       command: 'sudo systemctl status mariadb | grep "Active: active" -c'
 #       expected: '1'
+#     - description: 'HTTP code foo.com'
+#       command: 'curl -s -o /dev/null -w "%{http_code}" foo.com'
+#       expected: '200'
 
 ## Notifiers
 # If you want fikkie to notify state changes/problems, you'll need to specify
@@ -43,8 +43,8 @@ CONFIG_TEMPLATE = """---
 #
 # notifiers:
 #   - type: telegram
-#     token: 'foo'
-#     chat_id: 1234567
+#     token: '1234:abcd'
+#     chat_id: 1234
 """
 
 needed_dirs = [

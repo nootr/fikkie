@@ -5,7 +5,7 @@
 - [x] Add CI/CD pipeline
 - [x] * lint (black?)
 - [x] * tests (pytest?)
-- [ ] Improve docs
+- [x] Improve docs
 - [ ] Add changelog
 - [ ] Upload to PyPi
 
