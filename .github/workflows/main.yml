@@ -22,7 +22,7 @@ jobs:
         pip install -r test-requirements.txt
     - name: Lint
       run: |
-        black --check
+        make lint
 
   test:
     runs-on: ubuntu-latest
@@ -39,4 +39,4 @@ jobs:
         pip install -r test-requirements.txt
     - name: Test
       run: |
-        FIKKIE_CONFIG=/dev/null pytest
+        make test

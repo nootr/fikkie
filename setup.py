@@ -1,4 +1,3 @@
-from fikkie.version import VERSION
 from setuptools import setup
 
 with open("README.md", "r") as f:
@@ -6,12 +5,13 @@ with open("README.md", "r") as f:
 
 setup(
     name="fikkie",
-    version=VERSION,
+    version="0.1.0",
     description="A simple remote service watchdog.",
     license="MIT",
     long_description=long_description,
     author="Joris Hartog (@nootr)",
     long_description_content_type="text/markdown",
+    packages=["fikkie", "fikkie.notifiers"],
     scripts=["scripts/fikkie"],
     install_requires=[
         "celery==5.2.1",
