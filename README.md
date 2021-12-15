@@ -3,7 +3,7 @@
 > A simple lightweight watchdog which monitors external services over SSH.
 
 ![CI/CD](https://github.com/nootr/fikkie/actions/workflows/main.yml/badge.svg)
-[![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+[![PyPI license](https://img.shields.io/pypi/l/fikkie.svg)](https://pypi.python.org/pypi/fikkie/)
 [![PyPi version](https://badgen.net/pypi/v/fikkie/)](https://pypi.org/project/fikkie)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![macOS](https://svgshare.com/i/ZjP.svg)](https://svgshare.com/i/ZjP.svg)
