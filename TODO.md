@@ -6,7 +6,7 @@
 - [x] * lint (black?)
 - [x] * tests (pytest?)
 - [x] Improve docs
-- [ ] Add changelog
+- [x] Add changelog
 - [ ] Upload to PyPi
 
 ## Before v1.0

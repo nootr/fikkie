@@ -10,6 +10,7 @@
 * [Config example](#config-example)
 * [Documentation](https://nootr.github.io/fikkie/)
 * [Contributing](#contributing)
+* [Changelog](https://github.com/nootr/fikkie/blob/main/CHANGELOG.md)
 
 ## Introduction
 
