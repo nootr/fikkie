@@ -5,12 +5,13 @@ with open("README.md", "r") as f:
 
 setup(
     name="fikkie",
-    version="0.1.0",
+    version="0.2.0",
     description="Lightweight monitoring tool",
     license="MIT",
     long_description=long_description,
     author="Joris Hartog (@nootr)",
     long_description_content_type="text/markdown",
+    url="https://nootr.github.io/fikkie/",
     packages=["fikkie", "fikkie.notifiers"],
     scripts=["scripts/fikkie"],
     install_requires=[
