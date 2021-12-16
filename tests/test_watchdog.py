@@ -3,48 +3,8 @@ import pytest
 from fikkie.watchdog import WatchDog
 
 
-@pytest.fixture
-def mock_config():
-    yield {
-        "servers": {
-            "foo.bar": [
-                {
-                    "description": "foo",
-                    "command": "echo foo",
-                    "expected": "foo",
-                }
-            ]
-        },
-        "notifiers": [
-            {
-                "type": "telegram",
-                "token": "1234:abcd",
-                "chat_id": 1234,
-            }
-        ],
-    }
-
-
-@pytest.fixture
-def mock_notifier(mocker):
-    yield mocker.Mock()
-
-
-@pytest.fixture
-def mock_check(mocker):
-    yield mocker.Mock()
-
-
-@pytest.fixture
-def watchdog(mocker, mock_config, mock_notifier, mock_check):
-    mocker.patch("fikkie.watchdog.CONFIG", mock_config)
-    mocker.patch("fikkie.watchdog.Notifier", return_value=mock_notifier)
-    mocker.patch("fikkie.watchdog.Check", return_value=mock_check)
-    yield WatchDog()
-
-
 def test_watchdog_load_config(watchdog):
-    assert len(watchdog._checks) == 1
+    assert len(watchdog.checks) == 1
     assert len(watchdog._notifiers) == 1
 
 

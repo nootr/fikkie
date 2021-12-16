@@ -34,7 +34,7 @@ Install fikkie using pip and initialize fikkie:
 
 ```bash
 pip install fikkie
-fikkie --init
+fikkie init
 ```
 
 ## Config example
@@ -67,5 +67,5 @@ notifier:
 Contributions to fikkie are more than welcome!
 
 Please visit the
-[contributing guidelines](https://github.com/nootr/fikkie/blob/main/CONTRIBUTING.md)
+[contribution guidelines](https://github.com/nootr/fikkie/blob/main/CONTRIBUTING.md)
 for more info.
