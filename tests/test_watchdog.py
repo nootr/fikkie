@@ -48,9 +48,29 @@ def test_watchdog_load_config(watchdog):
     assert len(watchdog._notifiers) == 1
 
 
-def test_watchdog_notify(watchdog, mock_notifier):
+def test_watchdog_notify_no_icon(watchdog, mock_notifier):
     message = "Lorem ipsum"
     watchdog.notify(message)
+
+    mock_notifier.notify.assert_called_with(message)
+
+
+def test_watchdog_notify_utf8(watchdog, mock_notifier):
+    mock_notifier.ENCODING = "UTF-8"
+
+    message = "Lorem ipsum"
+    icon = "!"
+    watchdog.notify(message, icon)
+
+    mock_notifier.notify.assert_called_with(f"{icon} {message}")
+
+
+def test_watchdog_notify_ascii(watchdog, mock_notifier):
+    mock_notifier.ENCODING = "ASCII"
+
+    message = "Lorem ipsum"
+    icon = "!"
+    watchdog.notify(message, icon)
 
     mock_notifier.notify.assert_called_with(message)
 

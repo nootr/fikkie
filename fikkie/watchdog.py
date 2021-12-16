@@ -28,10 +28,12 @@ class WatchDog:
             Notifier(**n) for n in CONFIG.get("notifiers", [])
         ]
 
-    def notify(self, msg: str) -> None:
+    def notify(self, msg: str, icon: str = "") -> None:
         """Sends a notification using all available notifiers."""
         for notifier in self._notifiers:
-            notifier.notify(msg)
+            notifier.notify(
+                f"{icon} {msg}" if notifier.ENCODING == "UTF-8" and icon else msg
+            )
 
     def tick(self) -> None:
         """Perform checks."""
@@ -40,10 +42,11 @@ class WatchDog:
 
             if stdout_changed:
                 if stdout_expected:
-                    self.notify(f"🔥 {check.host}: {check.description}")
+                    self.notify(f"{check.host}: {check.description} OK", "🟢")
                 else:
                     self.notify(
-                        f"🔴 {check.host}: {check.description}\n{stdout} (stderr: {stderr})"
+                        f"{check.host}: {check.description} NOT OK\n{stdout} (stderr: {stderr})",
+                        "🔴",
                     )
 
     def heartbeat(self) -> None:

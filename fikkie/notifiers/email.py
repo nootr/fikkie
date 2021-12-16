@@ -12,6 +12,7 @@ class EmailNotifier:
     """
 
     TYPE = "email"
+    ENCODING = "ASCII"
 
     def __init__(
         self,
