@@ -10,8 +10,8 @@
 - [x] Upload to PyPi
 
 ## Before v0.2
-- [ ] Make notifier dependencies optional (update docs)
-- [ ] Add e-mail notifier
+- [x] Make notifier dependencies optional (update docs)
+- [x] Add e-mail notifier
 
 ## Before v1.0
 - [ ] Write contribution guide

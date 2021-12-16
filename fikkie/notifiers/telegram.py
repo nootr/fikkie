@@ -1,7 +1,7 @@
-from telegram import Bot
+import logging
 
 
-__all__ = ["Notifier", "TelegramNotifier"]
+__all__ = ["TelegramNotifier"]
 
 
 class TelegramNotifier:
@@ -12,9 +12,16 @@ class TelegramNotifier:
     TYPE = "telegram"
 
     def __init__(self, token: str, chat_id: str):
+        # Only import the telegram dependency when it's needed
+        try:
+            from telegram import Bot
+        except ModuleNotFoundError:
+            logging.error("Please install the `python-telegram-bot` package.")
+            exit(1)
+
         self._bot = Bot(token=token)
         self._chat_id = chat_id
 
     def notify(self, text: str) -> None:
-        "Sends a message." ""
+        """Sends a message."""
         self._bot.sendMessage(chat_id=self._chat_id, text=text)
