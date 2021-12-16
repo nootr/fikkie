@@ -15,7 +15,6 @@ setup(
     scripts=["scripts/fikkie"],
     install_requires=[
         "celery==5.2.1",
-        "python-telegram-bot==13.9",
         "PyYAML==6.0",
         "tinydb==4.5.2",
     ],

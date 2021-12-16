@@ -84,6 +84,9 @@ notifiers:
     chat_id: 1234
 ```
 
+The Telegram notifier uses the `python-telegram-bot` package as a dependency,
+so make sure you install that as well.
+
 
 ## Running fikkie as a daemon
 
