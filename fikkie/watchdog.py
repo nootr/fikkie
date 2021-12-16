@@ -51,4 +51,4 @@ class WatchDog:
 
     def heartbeat(self) -> None:
         """Send a notification to let user know the watchdog's alive."""
-        self.notify("❤️ I'm still awake.")
+        self.notify("I'm still awake.", "❤️")
