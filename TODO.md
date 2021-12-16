@@ -11,7 +11,7 @@
 
 ## Before v0.2
 - [x] Make notifier dependencies optional (update docs)
-- [ ] Add e-mail notifier
+- [x] Add e-mail notifier
 
 ## Before v1.0
 - [ ] Write contribution guide

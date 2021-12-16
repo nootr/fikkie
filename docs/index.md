@@ -8,10 +8,6 @@ SSH.
 Simply specify which commands should be run on which servers and what output is
 expected, and fikkie will let you know when something's wrong.
 
-Notifiers are written as modules, so adding a new notifier is easy! Currently,
-fikkie only supports notifying using a Telegram bot, but more options (i.e.
-e-mail, Slack, Discord) are added before version 1.0.
-
 
 ## User's guide
 
@@ -21,6 +17,7 @@ e-mail, Slack, Discord) are added before version 1.0.
   * [(Optional) Adding user](#adding-user)
   * [Setting up fikkie](#setting-up-fikkie)
 * [Setting up a notifier](#setting-up-a-notifier)
+  * [E-mail notifier](#e-mail-notifier)
   * [Telegram notifier](#telegram-notifier)
 * [Running fikkie as a daemon](#running-fikkie-as-a-daemon)
 
@@ -71,6 +68,23 @@ monitor and which notifiers should be used. Go to the
 
 
 ## Setting up a notifier
+
+### E-mail notifier
+
+The e-mail notifier needs to login on an SMTP server. In this example, GMail's SMTP
+server is used to mail to a hotmail recipient.
+
+```yaml
+notifiers:
+  - type: email
+    recipient: 'foo@hotmail.com'
+    email: 'foo@gmail.com'
+    password: 'abcdefghijkl'
+    smtp_server: 'smtp.gmail.com'
+    smtp_port: 465  # This is the default port, you can remove this line
+```
+
+Note that for this to work with GMail, you would first need to create an App Password.
 
 ### Telegram notifier
 
@@ -155,3 +169,14 @@ notifier:
     token: '1234:abcd'
     chat_id: 1234
 ```
+
+For **notifiers.type** = `email`
+* **notifiers.recipient**: The e-mail address to which notifications are sent.
+* **notifiers.email**: The e-mail address which Fikkie uses to sent.
+* **notifiers.password**: The password needed to login to the SMTP server.
+* **notifiers.smtp_server**: The SMTP server.
+* **notifiers.smtp_port** *(default: 465)*: The port on which the SMTP server listens.
+
+For **notifiers.type** = `telegram`
+* **notifiers.token**: The Telegram bot token.
+* **notifiers.chat_id**: The chat ID that Fikkie sends its notifications to.

@@ -22,7 +22,8 @@ Why use fikkie?
 
 * Fikkie is *easy* to set up
 * Fikkie is *lightweight*
-* Fikkie is *flexible* enough to be used for any service
+* Fikkie is *flexible* and could be used to monitor any service
+* Fikkie notifies you using your *favorite messaging service* (i.e. e-mail or Telegram)
 
 Simply specify which commands should be run on which servers and what output is
 expected, and fikkie will let you know when something's wrong.
