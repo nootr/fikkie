@@ -33,11 +33,13 @@ app.conf.beat_schedule = {
 
 @app.task
 def tick():
+    """Is triggered once every minute and performs the checks."""
     watchdog = WatchDog()
     watchdog.tick()
 
 
 @app.task
 def heartbeat():
+    """Is triggered once every day and lets the user know it's still alive."""
     watchdog = WatchDog()
     watchdog.heartbeat()

@@ -7,9 +7,7 @@ __all__ = ["EmailNotifier"]
 
 
 class EmailNotifier:
-    """
-    An e-mail notifier.
-    """
+    """An e-mail notifier."""
 
     TYPE = "email"
     ENCODING = "ASCII"

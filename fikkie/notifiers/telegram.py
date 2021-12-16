@@ -5,9 +5,7 @@ __all__ = ["TelegramNotifier"]
 
 
 class TelegramNotifier:
-    """
-    A telegram notifier.
-    """
+    """A telegram notifier."""
 
     TYPE = "telegram"
     ENCODING = "UTF-8"

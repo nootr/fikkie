@@ -5,9 +5,7 @@ from .config import DB_FILENAME
 
 
 class Check:
-    """
-    A command which is run on a given host with a certain expected output.
-    """
+    """A command which is run on a given host with a certain expected output."""
 
     def __init__(self, host, username, command, expected, description=""):
         self.host = host

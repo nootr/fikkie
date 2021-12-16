@@ -14,9 +14,7 @@
 - [x] Add e-mail notifier
 
 ## Before v1.0
-- [ ] Write contribution guide
+- [x] Write contribution guide
 - [ ] Add notifiers
-- [ ] * file
-- [ ] * e-mail
 - [ ] * Slack
 - [ ] * Discord

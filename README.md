@@ -64,9 +64,8 @@ notifier:
 
 ## Contributing
 
-Contributions to fikkie are welcome!
+Contributions to fikkie are more than welcome!
 
-1. Fork this repository and create a new branch for your feature or bugfix.
-2. Make your changes.
-3. Make sure to add the necessary tests.
-4. Send a pull request!
+Please visit the
+[contributing guidelines](https://github.com/nootr/fikkie/blob/main/CONTRIBUTING.md)
+for more info.
