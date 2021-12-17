@@ -182,7 +182,7 @@ notifier.
 Example:
 
 ```yaml
-notifier:
+notifiers:
   - type: telegram
     token: '1234:abcd'
     chat_id: 1234
