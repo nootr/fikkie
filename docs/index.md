@@ -36,7 +36,7 @@ Installing fikkie is easy!
 
 ```bash
 pip install fikkie
-fikkie --init
+fikkie init
 ```
 
 
@@ -66,6 +66,13 @@ When you run `fikkie --init`, a configuration template is placed in
 monitor and which notifiers should be used. Go to the
 [API Reference](#api-reference) for more info.
 
+To test the configuration, start fikkie by executing:
+
+```bash
+fikkie run
+```
+
+When everything works, you can [start a fikkie daemon](#running-fikkie-as-a-daemon).
 
 ## Setting up a notifier
 
@@ -104,11 +111,17 @@ so make sure you install that as well.
 
 ## Running fikkie as a daemon
 
-When you've configured fikkie and everything works as expected, you could run
-fikkie as a daemon with the `-d` flag:
+When you've configured fikkie and everything works as expected, start a fikkie daemon as
+follows:
 
 ```bash
-fikkie -d
+fikkie start
+```
+
+Stopping the daemon is just as easy:
+
+```bash
+fikkie stop
 ```
 
 
@@ -116,8 +129,11 @@ fikkie -d
 
 ### CLI flags
 
-* **fikkie -i/--init**: Set up the ~/.fikkie directory.
-* **fikkie -d/--daemonize**: Start a fikkie daemon.
+* **fikkie init**: Set up the ~/.fikkie directory.
+* **fikkie run**: Start fikkie.
+* **fikkie start**: Start a fikkie daemon.
+* **fikkie stop**: Stop the fikkie daemon.
+* **fikkie status**: Get status from all servers.
 * **fikkie -h/--help**: Show the help/usage text.
 
 ### Environment variables
@@ -128,6 +144,8 @@ file.
 * **FIKKIE_BROKER_DIR** *(default: "~/.fikkie/broker")*: A directory containing
 the celery broker data.
 * **FIKKIE_DB_FILENAME** *(default: "~/.fikkie/db.json")*: The database file.
+* **FIKKIE_LOG_FILE** *(default: "~/.fikkie/fikkie.log")*: The daemon log file.
+* **FIKKIE_PID_FILE** *(default: "~/.fikkie/fikkie.pid")*: The PID file.
 
 
 ### Configuration options

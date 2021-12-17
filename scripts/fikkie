@@ -1,74 +1,54 @@
-#!/usr/bin/bash
+#!/usr/bin/env python
 
-# This wrapper will daemonize the celery worker if the "-d" parameter is set.
+import argparse
+import logging
 
-USAGE="fikkie [-i|--init] [-d|--daemonize] [-h|--help]
+from fikkie.commands import Commands
 
-  Usage:
-      fikkie
-          Run fikkie.
-      fikkie -i
-          Initialize fikkie.
-      fikkie -d
-          Start a fikkie daemon.
-      fikkie -h
-          Show this text.
 
-Check out the docs or README at github.com/nootr/fikkie for more info."
+DESCRIPTION = """
+             _/_/  _/  _/        _/        _/
+          _/          _/  _/    _/  _/          _/_/
+       _/_/_/_/  _/  _/_/      _/_/      _/  _/_/_/_/
+        _/      _/  _/  _/    _/  _/    _/  _/
+       _/      _/  _/    _/  _/    _/  _/    _/_/_/
 
-INIT=0
-DAEMONIZE=0
+                     https://github.com/nootr/fikkie/
+                      https://nootr.github.io/fikkie/
 
-case "$1" in
-  -i|--init)      INIT=1;;
-  -d|--daemonize) DAEMONIZE=1;;
-  -h|--help)      echo "$USAGE"; exit 0;;
-esac
+A simple lightweight watchdog which monitors external services
+over SSH.
+"""
 
-if [ "$DAEMONIZE" -eq "1" ]; then
-  # Double fork to daemonize
-  (celery -A fikkie.main worker -B 1>/dev/null 2>/dev/null &) &
-  echo "Fikkie daemon is running"
-elif [ "$INIT" -eq "1" ]; then
-  mkdir -p ~/.fikkie/broker/{out,processed}
-  cat > ~/.fikkie/config.yaml << EOF
----
-## SSH config
-# Fikkie needs to know which user to use to login into the servers. This will
-# default to "fikkie".
-#
-# Example:
-#
-# ssh:
-#   username: fikkie
+COMMAND_HELP = """
+init  - Initialize fikkie's workspace.
+run   - Start fikkie.
+start - Start a fikkie daemon.
+stop  - Stop the fikkie daemon.
+status - Get status from all servers.
+"""
 
-## Servers
-# This is where you specify the commands fikkie needs to execute over SSH to
-# test them.
-#
-# Example:
-#
-# servers:
-#   primary.foo.com:
-#     - description: 'MariaDB'
-#       command: 'sudo systemctl status mariadb | grep "Active: active" -c'
-#       expected: '1'
-#     - description: 'HTTP code foo.com'
-#       command: 'curl -s -o /dev/null -w "%{http_code}" foo.com'
-#       expected: '200'
 
-## Notifiers
-# If you want fikkie to notify state changes/problems, you'll need to specify
-# the notifiers here.
-#
-# Example:
-#
-# notifiers:
-#   - type: telegram
-#     token: '1234:abcd'
-#     chat_id: 1234
-EOF
-  echo "Initialized fikkie, please check out ~/.fikkie/config.yaml"
-else
-  celery -A fikkie.main worker -B
-fi
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description=DESCRIPTION, formatter_class=argparse.RawTextHelpFormatter
+    )
+
+    parser.add_argument(
+        "command",
+        help=COMMAND_HELP,
+        action="store",
+        choices=["init", "run", "start", "stop", "status"],
+    )
+
+    return parser.parse_args()
+
+
+if __name__ == "__main__":
+    logging.basicConfig(
+        format="%(asctime)s %(levelname)-8s %(message)s", level=logging.INFO
+    )
+
+    args = parse_args()
+    kwargs = vars(args)
+    getattr(Commands, args.command)()
