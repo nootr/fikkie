@@ -56,7 +56,7 @@ servers:
       command: 'curl -s -o /dev/null -w "%{http_code}" foo.com'
       expected: '200'
 
-notifier:
+notifiers:
   - type: telegram
     token: '1234:abcd'
     chat_id: 1234
