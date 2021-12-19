@@ -32,7 +32,7 @@ class Check:
 
         return data
 
-    def _execute_ssh_command(self) -> str:
+    def _execute_ssh_command(self) -> Tuple[str, str]:
         """Executes an SSH command and returns stdout and stderr."""
         result = subprocess.run(
             [
@@ -122,7 +122,7 @@ class Check:
             last_result_stdout = None
 
         stdout_changed = stdout != last_result_stdout
-        status = "OK" if stdout == self.expected else "NOT OK"
+        status: Literal["OK", "NOT OK"] = "OK" if stdout == self.expected else "NOT OK"
 
         self._set_status(status, stdout, stderr)
 
