@@ -24,7 +24,7 @@ expected, and fikkie will let you know when something's wrong.
 
 ## API Reference
 
-* [API Reference](#api-reference)
+* [API Reference](#api-reference-1)
   * [CLI flags](#cli-flags)
   * [Environment variables](#environment-variables)
   * [Configuration options](#configuration-options)
