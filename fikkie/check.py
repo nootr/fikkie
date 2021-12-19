@@ -1,7 +1,7 @@
 import subprocess
 
 from tinydb import TinyDB, Query
-from typing import Literal
+from typing import Literal, Tuple
 
 from .config import DB_FILENAME
 
@@ -70,7 +70,7 @@ class Check:
         _, _, last_result_stderr = self._get_status()
         return last_result_stderr
 
-    def _get_status(self) -> tuple[str, str, str]:
+    def _get_status(self) -> Tuple[str, str, str]:
         """Returns a tuple of (last result status, last result stdout)."""
         db = TinyDB(DB_FILENAME)
         Status = Query()
@@ -111,7 +111,7 @@ class Check:
     def _db_id(self) -> str:
         return f"{self.host}:{self.command}"
 
-    def run(self) -> tuple[bool, bool, str, str]:
+    def run(self) -> Tuple[bool, bool, str, str]:
         """Executes the command and checks the results."""
 
         stdout, stderr = self._execute_ssh_command()

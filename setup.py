@@ -15,8 +15,9 @@ setup(
     packages=["fikkie", "fikkie.notifiers"],
     scripts=["scripts/fikkie"],
     install_requires=[
-        "celery==5.2.1",
-        "PyYAML==6.0",
-        "tinydb==4.5.2",
+        "celery",
+        "PyYAML",
+        "tinydb",
+        "typing_extensions",
     ],
 )
