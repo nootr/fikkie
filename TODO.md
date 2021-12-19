@@ -15,6 +15,7 @@
 
 ## Before v1.0
 - [x] Write contribution guide
+- [ ] Document supported Python versions
 - [ ] Add output formats for `fikkie status`
 - [ ] Add CLI parameter to set Celery loglevel
 - [ ] Add notifiers
