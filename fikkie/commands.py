@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 
 import atexit
+import json
 import logging
 import os
 import pprint
 import signal
 import sys
+import yaml
+
+from typing import Literal
 
 from fikkie.config import BASE_DIR, BROKER_DIR, CONFIG_FILE, LOG_FILE, PID_FILE
 from fikkie.main import app
@@ -51,8 +55,10 @@ CONFIG_TEMPLATE = """---
 
 
 class Commands:
+    FORMAT_OPTIONS = ["YAML", "JSON", "JSON-PRETTY"]
+
     @staticmethod
-    def init():
+    def init(*args, **kwargs):
         """Initialize fikkie's workspace."""
         if os.path.isdir(BASE_DIR):
             logging.warning("Fikkie has already been initialized!")
@@ -71,12 +77,12 @@ class Commands:
             f.write(CONFIG_TEMPLATE)
 
     @staticmethod
-    def run():
+    def run(*args, **kwargs):
         """Start fikkie."""
         app.worker_main(["worker", "-B", "-l", "info"])
 
     @staticmethod
-    def start():
+    def start(*args, **kwargs):
         """
         Start a fikkie daemon.
 
@@ -114,7 +120,7 @@ class Commands:
         app.worker_main(["worker", "-B", "-l", "info"])
 
     @staticmethod
-    def stop():
+    def stop(*args, **kwargs):
         """Stop the fikkie daemon."""
         try:
             with open(PID_FILE, "r") as pid_file:
@@ -123,11 +129,15 @@ class Commands:
             logging.error("Could not find PID file. Is fikkie running?")
             exit(1)
 
-        os.kill(pid, signal.SIGTERM)
-        logging.info("Stopped the fikkie daemon.")
+        try:
+            os.kill(pid, signal.SIGTERM)
+            logging.info("Stopped the fikkie daemon.")
+        except ProcessLookupError:
+            os.remove(PID_FILE)
+            logging.warning("The fikkie daemon had already stopped.")
 
     @staticmethod
-    def status(output_format="JSON-PRETTY"):
+    def status(output_format: Literal["YAML", "JSON", "JSON-PRETTY"], *args, **kwargs):
         """Get status from all servers."""
 
         def _dump(check):
@@ -137,14 +147,17 @@ class Commands:
                 return check.dump(short=True)
 
         watchdog = WatchDog()
+        data = {
+            "Daemon running": os.path.isfile(PID_FILE),
+            "checks": [_dump(check) for check in watchdog.checks],
+        }
 
-        if output_format == "JSON-PRETTY":
-            data = {
-                "Daemon running": os.path.isfile(PID_FILE),
-                "checks": [_dump(check) for check in watchdog.checks],
-            }
+        if output_format.upper() == "YAML":
+            print(yaml.safe_dump(data))
+        elif output_format.upper() == "JSON":
+            print(json.dumps(data))
+        elif output_format.upper() == "JSON-PRETTY":
             pprint.pprint(data)
-            return
-
-        logging.error(f"Unknown output format: {output_format}")
-        exit(1)
+        else:
+            logging.error(f"Unknown output format: {output_format}")
+            exit(1)

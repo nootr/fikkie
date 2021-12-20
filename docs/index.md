@@ -133,7 +133,7 @@ fikkie stop
 * **fikkie run**: Start fikkie.
 * **fikkie start**: Start a fikkie daemon.
 * **fikkie stop**: Stop the fikkie daemon.
-* **fikkie status**: Get status from all servers.
+* **fikkie status [--format {YAML,JSON,JSON-PRETTY}]**: Get status from all servers.
 * **fikkie -h/--help**: Show the help/usage text.
 
 ### Environment variables
