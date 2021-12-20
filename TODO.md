@@ -15,7 +15,7 @@
 
 ## Before v1.0
 - [x] Write contribution guide
-- [ ] Document supported Python versions
+- [x] Document supported Python versions
 - [ ] Add mypy to CI/CD pipeline
 - [x] Add output formats for `fikkie status`
 - [ ] Add CLI parameter to set Celery loglevel
