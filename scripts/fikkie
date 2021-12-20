@@ -41,6 +41,15 @@ def parse_args():
         choices=["init", "run", "start", "stop", "status"],
     )
 
+    parser.add_argument(
+        "--format",
+        help="The output format of `fikkie status` (default: YAML).",
+        action="store",
+        choices=Commands.FORMAT_OPTIONS,
+        default="YAML",
+        type=str.upper,
+    )
+
     return parser.parse_args()
 
 
@@ -51,4 +60,4 @@ if __name__ == "__main__":
 
     args = parse_args()
     kwargs = vars(args)
-    getattr(Commands, args.command)()
+    getattr(Commands, args.command)(output_format=args.format)

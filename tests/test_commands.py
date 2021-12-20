@@ -11,9 +11,9 @@ def test_scripts_init(mock_os_mkdir, mock_open, mock_file, mock_no_config):
 
 
 def test_scripts_status(watchdog, capsys):
-    Commands.status()
+    Commands.status(output_format="JSON-PRETTY")
 
     output = capsys.readouterr().out
 
-    assert "'Daemon running':" in output
+    assert "{'Daemon running':" in output
     assert "'checks':" in output
