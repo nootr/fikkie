@@ -1,2 +1,1 @@
-build
-twine
+build==0.7.0
