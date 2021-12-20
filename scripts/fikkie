@@ -42,11 +42,22 @@ def parse_args():
     )
 
     parser.add_argument(
+        "-f",
         "--format",
         help="The output format of `fikkie status` (default: YAML).",
         action="store",
         choices=Commands.FORMAT_OPTIONS,
         default="YAML",
+        type=str.upper,
+    )
+
+    parser.add_argument(
+        "-l",
+        "--loglevel",
+        help="The output loglevel (default: INFO).",
+        action="store",
+        choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL", "FAILURE"],
+        default="INFO",
         type=str.upper,
     )
 
@@ -60,4 +71,4 @@ if __name__ == "__main__":
 
     args = parse_args()
     kwargs = vars(args)
-    getattr(Commands, args.command)(output_format=args.format)
+    getattr(Commands, args.command)(output_format=args.format, loglevel=args.loglevel)

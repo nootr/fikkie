@@ -18,7 +18,7 @@
 - [x] Document supported Python versions
 - [ ] Add mypy to CI/CD pipeline
 - [x] Add output formats for `fikkie status`
-- [ ] Add CLI parameter to set Celery loglevel
+- [x] Add CLI parameter to set Celery loglevel
 - [ ] Add notifiers
 - [ ] * Slack
 - [ ] * Discord

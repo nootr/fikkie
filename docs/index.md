@@ -132,10 +132,12 @@ fikkie stop
 ### CLI flags
 
 * **fikkie init**: Set up the ~/.fikkie directory.
-* **fikkie run**: Start fikkie.
-* **fikkie start**: Start a fikkie daemon.
+* **fikkie run [-l/--loglevel {DEBUG,INFO,WARNING,ERROR,CRITICAL,FAILURE}]**:
+Start fikkie.
+* **fikkie start [-l/--loglevel {DEBUG,INFO,WARNING,ERROR,CRITICAL,FAILURE}]**:
+Start a fikkie daemon.
 * **fikkie stop**: Stop the fikkie daemon.
-* **fikkie status [--format {YAML,JSON,JSON-PRETTY}]**: Get status from all servers.
+* **fikkie status [-f/--format {YAML,JSON,JSON-PRETTY}]**: Get status from all servers.
 * **fikkie -h/--help**: Show the help/usage text.
 
 ### Environment variables

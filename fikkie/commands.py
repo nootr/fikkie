@@ -77,12 +77,12 @@ class Commands:
             f.write(CONFIG_TEMPLATE)
 
     @staticmethod
-    def run(*args, **kwargs):
+    def run(loglevel, *args, **kwargs):
         """Start fikkie."""
-        app.worker_main(["worker", "-B", "-l", "info"])
+        app.worker_main(["worker", "-B", "-l", loglevel])
 
     @staticmethod
-    def start(*args, **kwargs):
+    def start(loglevel, *args, **kwargs):
         """
         Start a fikkie daemon.
 
@@ -117,7 +117,7 @@ class Commands:
         with open(PID_FILE, "w+") as pid_file:
             pid_file.write(f"{os.getpid()}")
 
-        app.worker_main(["worker", "-B", "-l", "info"])
+        app.worker_main(["worker", "-B", "-l", loglevel])
 
     @staticmethod
     def stop(*args, **kwargs):
