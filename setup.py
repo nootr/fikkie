@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="fikkie",
-    version="0.3.1",
+    version="0.3.2",
     description="Lightweight monitoring tool",
     license="MIT",
     long_description=long_description,
