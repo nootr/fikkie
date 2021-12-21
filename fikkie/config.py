@@ -19,7 +19,7 @@ def load_config() -> dict:
         with open(CONFIG_FILE, "r") as f:
             return yaml.safe_load(f) or {}
     except FileNotFoundError as e:
-        logging.warning("Please run `fikkie --init`.")
+        logging.warning("Please run `fikkie init`.")
         exit(1)
     except yaml.YAMLError as e:
         logging.error(f"Could not parse config: {e}")

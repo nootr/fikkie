@@ -8,8 +8,6 @@ from .notifiers import Notifier
 
 __all__ = ["WatchDog"]
 
-CONFIG = load_config()
-
 
 class WatchDog:
     """
@@ -19,16 +17,17 @@ class WatchDog:
     """
 
     def __init__(self):
-        self._ssh_config: dict[str, str] = CONFIG.get("ssh", {})
+        config = load_config()
+        self._ssh_config: dict[str, str] = config.get("ssh", {})
 
         self.checks: list[Check] = [
             Check(h, self._ssh_config.get("username", "fikkie"), **c)
-            for h, cs in CONFIG.get("servers", {}).items()
+            for h, cs in config.get("servers", {}).items()
             for c in cs
         ]
 
         self._notifiers: list[Notifier] = [
-            Notifier(**n) for n in CONFIG.get("notifiers", [])
+            Notifier(**n) for n in config.get("notifiers", [])
         ]
 
     def notify(self, msg: str, icon: str = "") -> None:
