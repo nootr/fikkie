@@ -37,7 +37,7 @@ def mock_check(mocker):
 
 @pytest.fixture
 def watchdog(mocker, mock_config, mock_notifier, mock_check):
-    mocker.patch("fikkie.watchdog.CONFIG", mock_config)
+    mocker.patch("fikkie.watchdog.load_config", return_value=mock_config)
     mocker.patch("fikkie.watchdog.Notifier", return_value=mock_notifier)
     mocker.patch("fikkie.watchdog.Check", return_value=mock_check)
     yield WatchDog()

@@ -1,9 +1,16 @@
 import subprocess
 
 from tinydb import TinyDB, Query
-from typing import Literal, Tuple
+from typing import Tuple
 
 from .config import DB_FILENAME
+
+try:
+    # Python 3.8+
+    from typing import Literal
+except ImportError:
+    # Python 3.7
+    from typing_extensions import Literal  # type: ignore
 
 
 class Check:

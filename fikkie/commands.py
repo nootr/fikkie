@@ -9,11 +9,16 @@ import signal
 import sys
 import yaml
 
-from typing import Literal
-
 from fikkie.config import BASE_DIR, BROKER_DIR, CONFIG_FILE, LOG_FILE, PID_FILE
 from fikkie.main import app
 from fikkie.watchdog import WatchDog
+
+try:
+    # Python 3.8+
+    from typing import Literal
+except ImportError:
+    # Python 3.7
+    from typing_extensions import Literal  # type: ignore
 
 
 CONFIG_TEMPLATE = """---

@@ -1,4 +1,4 @@
-.PHONY: dev run lint test build publish
+.PHONY: dev run lint test build 
 
 dev:
 	celery -A fikkie.main worker -B -l debug
@@ -13,7 +13,7 @@ unit:
 	FIKKIE_CONFIG=/dev/null pytest
 
 functional:
-	./tests/functional/test.sh
+	bash ./tests/functional/test.sh
 
 build:
 	python -m build
