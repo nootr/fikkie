@@ -43,7 +43,7 @@ jobs:
       run: |
         mypy .
 
-  test:
+  unit-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -61,4 +61,19 @@ jobs:
         pip install -r test-requirements.txt
     - name: Test
       run: |
-        make test
+        make unit
+
+  functional-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ 'ubuntu-latest', 'macos-latest' ]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.7'
+    - name: Test
+      run: |
+        make functional

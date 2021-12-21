@@ -9,8 +9,11 @@ run:
 lint:
 	black --check
 
-test:
+unit:
 	FIKKIE_CONFIG=/dev/null pytest
+
+functional:
+	./tests/functional/test.sh
 
 build:
 	python -m build
