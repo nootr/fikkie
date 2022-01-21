@@ -2,14 +2,20 @@ import pytest
 import sys
 
 from fikkie.check import Check
-from fikkie.watchdog import WatchDog
 from fikkie.notifiers.email import EmailNotifier
 from fikkie.notifiers.telegram import TelegramNotifier
+from fikkie.watchdog import WatchDog
+
+
+# Imports
 
 
 @pytest.fixture
 def mock_telegram_import(mocker):
     sys.modules["telegram"] = mocker.Mock()
+
+
+# Data
 
 
 @pytest.fixture
@@ -35,6 +41,19 @@ def mock_config():
 
 
 @pytest.fixture
+def mock_check_status():
+    yield ("foo", "bar", "baz")
+
+
+@pytest.fixture
+def mock_ssh_output():
+    yield ("foo_stdout", "bar_stderr")
+
+
+# Mocks
+
+
+@pytest.fixture
 def mock_notifier(mocker):
     yield mocker.Mock()
 
@@ -49,14 +68,7 @@ def mock_bot(mocker):
     yield mocker.Mock()
 
 
-@pytest.fixture
-def mock_check_status():
-    yield ("foo", "bar", "baz")
-
-
-@pytest.fixture
-def mock_ssh_output():
-    yield ("foo_stdout", "bar_stderr")
+# Classes with mocked environment
 
 
 @pytest.fixture
@@ -88,7 +100,6 @@ def email_notifier(mocker, mock_smtp_server):
     _mock_server = mocker.MagicMock()
     _mock_server.__enter__.return_value = mock_smtp_server
     mocker.patch("smtplib.SMTP_SSL", return_value=_mock_server)
-
     yield EmailNotifier(
         recipient="foo",
         email="bar@baz.qwerty",
@@ -102,6 +113,9 @@ def email_notifier(mocker, mock_smtp_server):
 def telegram_notifier(mocker, mock_bot, mock_telegram_import):
     mocker.patch("telegram.Bot", return_value=mock_bot)
     yield TelegramNotifier(token="foo", chat_id="bar")
+
+
+# Patches
 
 
 @pytest.fixture
