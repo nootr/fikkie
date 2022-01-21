@@ -37,12 +37,14 @@ def test_watchdog_notify_ascii(watchdog, mock_notifier):
 
 @pytest.mark.parametrize("changed", (True, False))
 @pytest.mark.parametrize("expected", (True, False))
-def test_watchdog_tick(watchdog, mock_check, mock_notifier, changed, expected):
-    mock_check.run.return_value = (changed, expected, "foo", "bar")
+def test_watchdog_tick(mocker, watchdog, mock_notifier, changed, expected):
+    check = mocker.Mock()
+    check.run.return_value = (changed, expected, "foo", "bar")
+    watchdog.checks = [check]
 
     watchdog.tick()
 
-    mock_check.run.assert_called()
+    check.run.assert_called()
 
     if changed and expected:
         mock_notifier.notify.assert_called()

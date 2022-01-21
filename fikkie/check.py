@@ -8,7 +8,7 @@ from .config import DB_FILENAME
 try:
     # Python 3.8+
     from typing import Literal
-except ImportError:
+except ImportError:  # pragma: no cover - no need to test Python's stdlib
     # Python 3.7
     from typing_extensions import Literal  # type: ignore
 
@@ -39,7 +39,7 @@ class Check:
 
         return data
 
-    def _execute_ssh_command(self) -> Tuple[str, str]:
+    def _execute_ssh_command(self) -> Tuple[str, str]:  # pragma: no cover - wrapper
         """Executes an SSH command and returns stdout and stderr."""
         result = subprocess.run(
             [
@@ -60,24 +60,24 @@ class Check:
         return _decode(result.stdout), _decode(result.stderr)
 
     @property
-    def status(self) -> str:
+    def status(self) -> str:  # pragma: no cover - no complexity here
         """Returns the last result status."""
         last_result_status, _, _ = self._get_status()
         return last_result_status
 
     @property
-    def stdout(self) -> str:
+    def stdout(self) -> str:  # pragma: no cover - no complexity here
         """Returns the last result stdout."""
         _, last_result_stdout, _ = self._get_status()
         return last_result_stdout
 
     @property
-    def stderr(self) -> str:
+    def stderr(self) -> str:  # pragma: no cover - no complexity here
         """Returns the last result stderr."""
         _, _, last_result_stderr = self._get_status()
         return last_result_stderr
 
-    def _get_status(self) -> Tuple[str, str, str]:
+    def _get_status(self) -> Tuple[str, str, str]:  # pragma: no cover - DB wrapper
         """Returns a tuple of (last result status, last result stdout)."""
         db = TinyDB(DB_FILENAME)
         Status = Query()
@@ -94,7 +94,7 @@ class Check:
 
     def _set_status(
         self, status: Literal["OK", "NOT OK", "UNKNOWN"], stdout: str, stderr: str
-    ) -> None:
+    ) -> None:  # pragma: no cover - DB wrapper
         """Sets the last result status and stdout."""
         db = TinyDB(DB_FILENAME)
         Status = Query()
@@ -115,17 +115,16 @@ class Check:
         db.update(data, Status.id == self._db_id)
 
     @property
-    def _db_id(self) -> str:
+    def _db_id(self) -> str:  # pragma: no cover - no complexity here
         return f"{self.host}:{self.command}"
 
     def run(self) -> Tuple[bool, bool, str, str]:
         """Executes the command and checks the results."""
-
         stdout, stderr = self._execute_ssh_command()
 
         try:
             last_result_stdout = self.stdout
-        except ValueError:
+        except ValueError:  # pragma: no cover - simple case
             last_result_stdout = None
 
         stdout_changed = stdout != last_result_stdout

@@ -14,7 +14,7 @@ class TelegramNotifier:
         # Only import the telegram dependency when it's needed
         try:
             from telegram import Bot
-        except ModuleNotFoundError:
+        except ModuleNotFoundError:  # pragma: no cover - no complexity here
             logging.error("Please install the `python-telegram-bot` package.")
             exit(1)
 
