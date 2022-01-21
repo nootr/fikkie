@@ -13,7 +13,7 @@ LOG_FILE = os.getenv("FIKKIE_LOG_FILE", os.path.join(BASE_DIR, "fikkie.log"))
 PID_FILE = os.getenv("FIKKIE_PID_FILE", os.path.join(BASE_DIR, "fikkie.pid"))
 
 
-def load_config() -> dict:
+def load_config() -> dict:  # pragma: no cover - no complexity here
     """Parse the config from a given file."""
     try:
         with open(CONFIG_FILE, "r") as f:

@@ -5,3 +5,4 @@ __pycache__
 celerybeat-schedule
 dist/
 fikkie.egg-info/
+.coverage

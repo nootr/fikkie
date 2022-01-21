@@ -15,12 +15,12 @@ class Notifier:
     TYPE = None
     ENCODING = None
 
-    def __new__(cls, type: str, *args, **kwargs):
+    def __new__(cls, type: str, *args, **kwargs):  # pragma: no cover - no complexity
         for notifier in cls.NOTIFIERS:
             if type == notifier.TYPE:  # type: ignore
                 return notifier(*args, **kwargs)
         raise ValueError(f"Unknown notifier type: {type}")
 
-    def notify(self, text: str) -> None:
+    def notify(self, text: str) -> None:  # pragma: no cover - placeholder
         """Sends a message."""
         raise NotImplementedError()

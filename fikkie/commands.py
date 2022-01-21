@@ -16,7 +16,7 @@ from fikkie.watchdog import WatchDog
 try:
     # Python 3.8+
     from typing import Literal
-except ImportError:
+except ImportError:  # pragma: no cover - no need to test Python's stdlib
     # Python 3.7
     from typing_extensions import Literal  # type: ignore
 
@@ -65,7 +65,7 @@ class Commands:
     @staticmethod
     def init(*args, **kwargs):
         """Initialize fikkie's workspace."""
-        if os.path.isdir(BASE_DIR):
+        if os.path.isdir(BASE_DIR):  # pragma: no cover - simple early return
             logging.warning("Fikkie has already been initialized!")
             exit(1)
 
@@ -82,12 +82,12 @@ class Commands:
             f.write(CONFIG_TEMPLATE)
 
     @staticmethod
-    def run(loglevel, *args, **kwargs):
+    def run(loglevel, *args, **kwargs):  # pragma: no cover - in functional test
         """Start fikkie."""
         app.worker_main(["worker", "-B", "-l", loglevel])
 
     @staticmethod
-    def start(loglevel, *args, **kwargs):
+    def start(loglevel, *args, **kwargs):  # pragma: no cover - in functional test
         """
         Start a fikkie daemon.
 
@@ -125,7 +125,7 @@ class Commands:
         app.worker_main(["worker", "-B", "-l", loglevel])
 
     @staticmethod
-    def stop(*args, **kwargs):
+    def stop(*args, **kwargs):  # pragma: no cover - in functional test
         """Stop the fikkie daemon."""
         try:
             with open(PID_FILE, "r") as pid_file:
@@ -142,7 +142,9 @@ class Commands:
             logging.warning("The fikkie daemon had already stopped.")
 
     @staticmethod
-    def status(output_format: Literal["YAML", "JSON", "JSON-PRETTY"], *args, **kwargs):
+    def status(
+        output_format: Literal["YAML", "JSON", "JSON-PRETTY"], *args, **kwargs
+    ):  # pragma: no cover - in functional test
         """Get status from all servers."""
 
         def _dump(check):
