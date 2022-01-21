@@ -59,6 +59,21 @@ Also, aim to write your code so that it's readable enough to eliminate the need 
 comments. When you do write a comment, prefix it with `TODO:` or `NOTE:`.
 
 
+## Tests
+
+It might seem a bit neurotic to maintain a 100% code coverage, but it's actually not
+that bad. Our goal is not to test all code, but to test all of the code that needs to
+be tested.
+
+This means that code that doesn't need to be tested needs to be marked with the
+following comment:
+
+```python
+def foo(x):  # pragma: no cover - no complexity here
+    return bar.baz(x+1)
+```
+
+
 ## Version numbers
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
