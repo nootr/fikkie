@@ -20,4 +20,18 @@ setup(
         "tinydb==4.5.2",
         "typing_extensions==4.0.1",
     ],
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Framework :: Celery",
+        "Intended Audience :: System Administrators",
+        "License :: OSI Approved :: MIT License",
+        "Natural Language :: English",
+        "Operating System :: MacOS",
+        "Operating System :: POSIX",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Topic :: System :: Monitoring",
+    ],
 )
