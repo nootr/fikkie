@@ -6,3 +6,4 @@ celerybeat-schedule
 dist/
 fikkie.egg-info/
 .coverage
+coverage.xml
