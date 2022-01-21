@@ -7,7 +7,7 @@ run:
 	celery -A fikkie.main worker -B -l info
 
 lint:
-	black --check
+	black --check .
 
 unit:
 	FIKKIE_CONFIG=/dev/null pytest --cov=fikkie --cov-report=xml --cov-fail-under=100
