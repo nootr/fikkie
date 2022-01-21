@@ -10,7 +10,7 @@ lint:
 	black --check
 
 unit:
-	FIKKIE_CONFIG=/dev/null pytest
+	FIKKIE_CONFIG=/dev/null pytest --cov=fikkie --cov-report=term-missing
 
 functional:
 	bash ./tests/functional/test.sh
