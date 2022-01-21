@@ -2,11 +2,15 @@
 
 > A simple lightweight watchdog which monitors external services over SSH.
 
-![CI/CD](https://github.com/nootr/fikkie/actions/workflows/main.yml/badge.svg)
-[![PyPI license](https://img.shields.io/pypi/l/fikkie.svg)](https://pypi.python.org/pypi/fikkie/)
+[![CI/CD](https://github.com/nootr/fikkie/actions/workflows/main.yml/badge.svg)](https://github.com/nootr/fikkie/actions)
+[![PyPI license](https://img.shields.io/pypi/l/fikkie.svg)](https://github.com/nootr/fikkie/blob/main/LICENSE.md)
 [![PyPi version](https://badgen.net/pypi/v/fikkie/)](https://pypi.org/project/fikkie)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![macOS](https://svgshare.com/i/ZjP.svg)](https://svgshare.com/i/ZjP.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Python versions](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://pypi.python.org/pypi/fikkie/)
+[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
+
 
 ## Quick links
 
