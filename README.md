@@ -6,6 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/nootr/fikkie/badge.svg?branch=main)](https://coveralls.io/github/nootr/fikkie?branch=main)
 [![PyPI license](https://img.shields.io/pypi/l/fikkie.svg)](https://github.com/nootr/fikkie/blob/main/LICENSE.md)
 [![PyPi version](https://badgen.net/pypi/v/fikkie/)](https://pypi.org/project/fikkie)
+[![Downloads](https://pepy.tech/badge/fikkie)](https://pepy.tech/project/fikkie)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![macOS](https://svgshare.com/i/ZjP.svg)](https://svgshare.com/i/ZjP.svg)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
