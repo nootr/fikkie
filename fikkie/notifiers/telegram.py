@@ -1,14 +1,15 @@
 import logging
 
+from .base import BaseNotifier
+
 
 __all__ = ["TelegramNotifier"]
 
 
-class TelegramNotifier:
+class TelegramNotifier(BaseNotifier):
     """A telegram notifier."""
 
     TYPE = "telegram"
-    ENCODING = "UTF-8"
 
     def __init__(self, token: str, chat_id: str):
         # Only import the telegram dependency when it's needed

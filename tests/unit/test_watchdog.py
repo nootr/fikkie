@@ -1,5 +1,6 @@
 import pytest
 
+from fikkie.notifiers import Encoding
 from fikkie.watchdog import WatchDog
 
 
@@ -16,7 +17,7 @@ def test_watchdog_notify_no_icon(watchdog, mock_notifier):
 
 
 def test_watchdog_notify_utf8(watchdog, mock_notifier):
-    mock_notifier.ENCODING = "UTF-8"
+    mock_notifier.ENCODING = Encoding.UTF8
 
     message = "Lorem ipsum"
     icon = "!"
@@ -26,7 +27,7 @@ def test_watchdog_notify_utf8(watchdog, mock_notifier):
 
 
 def test_watchdog_notify_ascii(watchdog, mock_notifier):
-    mock_notifier.ENCODING = "ASCII"
+    mock_notifier.ENCODING = Encoding.ASCII
 
     message = "Lorem ipsum"
     icon = "!"

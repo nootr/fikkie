@@ -3,7 +3,7 @@ import os
 
 from .check import Check
 from .config import load_config
-from .notifiers import Notifier
+from .notifiers import Notifier, Encoding
 
 
 __all__ = ["WatchDog"]
@@ -35,7 +35,7 @@ class WatchDog:
         logging.info(f"Sending notification: {icon} {msg}")
         for notifier in self._notifiers:
             notifier.notify(
-                f"{icon} {msg}" if notifier.ENCODING == "UTF-8" and icon else msg
+                f"{icon} {msg}" if notifier.ENCODING == Encoding.UTF8 and icon else msg
             )
 
     def tick(self) -> None:

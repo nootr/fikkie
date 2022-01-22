@@ -68,6 +68,11 @@ def mock_bot(mocker):
     yield mocker.Mock()
 
 
+@pytest.fixture
+def mock_file(mocker):
+    yield mocker.Mock()
+
+
 # Classes with mocked environment
 
 
@@ -126,11 +131,6 @@ def mock_no_config(mocker):
 @pytest.fixture
 def mock_os_mkdir(mocker):
     yield mocker.patch("os.mkdir")
-
-
-@pytest.fixture
-def mock_file(mocker):
-    yield mocker.Mock()
 
 
 @pytest.fixture

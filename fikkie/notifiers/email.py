@@ -2,15 +2,17 @@ import logging
 import smtplib
 import ssl
 
+from .base import BaseNotifier, Encoding
+
 
 __all__ = ["EmailNotifier"]
 
 
-class EmailNotifier:
+class EmailNotifier(BaseNotifier):
     """An e-mail notifier."""
 
     TYPE = "email"
-    ENCODING = "ASCII"
+    ENCODING = Encoding.ASCII
 
     def __init__(
         self,
