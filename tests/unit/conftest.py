@@ -2,6 +2,7 @@ import pytest
 import sys
 
 from fikkie.check import Check
+from fikkie.notifiers.discord import DiscordNotifier
 from fikkie.notifiers.email import EmailNotifier
 from fikkie.notifiers.telegram import TelegramNotifier
 from fikkie.watchdog import WatchDog
@@ -13,6 +14,11 @@ from fikkie.watchdog import WatchDog
 @pytest.fixture
 def mock_telegram_import(mocker):
     sys.modules["telegram"] = mocker.Mock()
+
+
+@pytest.fixture
+def mock_hikari_import(mocker):
+    sys.modules["hikari"] = mocker.Mock()
 
 
 # Data
@@ -73,6 +79,20 @@ def mock_file(mocker):
     yield mocker.Mock()
 
 
+@pytest.fixture
+def mock_hikari_rest_app_client(mocker, awaitable_magicmock):
+    yield mocker.MagicMock()
+
+
+@pytest.fixture
+def mock_hikari_rest_app(mocker, mock_hikari_rest_app_client):
+    mock_acquired = mocker.MagicMock()
+    mock_acquired.__aenter__.return_value = mock_hikari_rest_app_client
+    rest_app = mocker.Mock()
+    rest_app.acquire.return_value = mock_acquired
+    yield rest_app
+
+
 # Classes with mocked environment
 
 
@@ -98,6 +118,12 @@ def watchdog(mocker, mock_config, mock_notifier, check):
     mocker.patch("fikkie.watchdog.Notifier", return_value=mock_notifier)
     mocker.patch("fikkie.watchdog.Check", return_value=check)
     yield WatchDog()
+
+
+@pytest.fixture
+def discord_notifier(mocker, mock_hikari_rest_app, mock_hikari_import):
+    mocker.patch("hikari.RESTApp", return_value=mock_hikari_rest_app)
+    yield DiscordNotifier(token="foo", channel_id=1234)
 
 
 @pytest.fixture
@@ -138,3 +164,11 @@ def mock_open(mocker, mock_file):
     _mock_open = mocker.MagicMock()
     _mock_open.__enter__.return_value = mock_file
     yield mocker.patch("builtins.open", return_value=_mock_open)
+
+
+@pytest.fixture
+def awaitable_magicmock(mocker):
+    async def _async_method():
+        pass
+
+    mocker.MagicMock.__await__ = lambda x: _async_method().__await__()
