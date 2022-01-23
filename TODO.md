@@ -21,4 +21,4 @@
 - [x] Add CLI parameter to set Celery loglevel
 - [ ] Add notifiers
 - [ ] * Slack
-- [ ] * Discord
+- [x] * Discord

@@ -17,6 +17,7 @@ expected, and fikkie will let you know when something's wrong.
   * [(Optional) Adding user](#adding-user)
   * [Setting up fikkie](#setting-up-fikkie)
 * [Setting up a notifier](#setting-up-a-notifier)
+  * [Discord notifier](#discord-notifier)
   * [E-mail notifier](#e-mail-notifier)
   * [Telegram notifier](#telegram-notifier)
 * [Running fikkie as a daemon](#running-fikkie-as-a-daemon)
@@ -77,6 +78,31 @@ fikkie run
 When everything works, you can [start a fikkie daemon](#running-fikkie-as-a-daemon).
 
 ## Setting up a notifier
+
+### Discord notifier
+
+Creating a Discord bot as a notifier is pretty straightforward:
+
+* Log into the Discord Developer Portal and create a new Application.
+* Navigate to the "Bot" settings and add a new bot.
+* Copy the token.
+* Disable the "Public bot" switch.
+* Navigate to the "OAuth2" settings and click on "URL generator".
+* Enable the "Bot" scope and "Send messages" permissions.
+* Visit the generated URL.
+* Select the server on which you want to add the bot.
+
+Now add the following lines to your fikkie configuration:
+
+```yaml
+notifiers:
+  - type: discord
+    token: 'foobarbaz'
+    channel_id: 1234
+```
+
+The Discord notifier uses the `hikari` package as a dependency, so make sure you install
+that as well.
 
 ### E-mail notifier
 
