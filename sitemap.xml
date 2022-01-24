@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://nootr.github.io/fikkie/</loc>
+         <lastmod>2022-01-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nootr.github.io/fikkie/api/</loc>
+         <lastmod>2022-01-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nootr.github.io/fikkie/configuration/</loc>
+         <lastmod>2022-01-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nootr.github.io/fikkie/development/</loc>
+         <lastmod>2022-01-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nootr.github.io/fikkie/installation/</loc>
+         <lastmod>2022-01-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nootr.github.io/fikkie/notifiers/</loc>
+         <lastmod>2022-01-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>

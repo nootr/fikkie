@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://nootr.github.io/fikkie/api/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>API Reference - Fikkie documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "API Reference";
+    var mkdocs_page_input_path = "api.md";
+    var mkdocs_page_url = "/fikkie/api/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Fikkie documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../notifiers/">Notifiers</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../development/">Development</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">API Reference</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#cli-flags">CLI flags</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration-options">Configuration options</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Fikkie documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>API Reference</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="api-reference">API reference</h1>
+<h2 id="cli-flags">CLI flags</h2>
+<table>
+<thead>
+<tr>
+<th align="left">fikkie init</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Set up the ~/.fikkie directory.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">fikkie run [-l/--loglevel {DEBUG,INFO,WARNING,ERROR,CRITICAL,FAILURE}]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Start fikkie.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">fikkie start [-l/--loglevel {DEBUG,INFO,WARNING,ERROR,CRITICAL,FAILURE}]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Start a fikkie daemon.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">fikkie stop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Stop the fikkie daemon.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">fikkie status [-f/--format {YAML,JSON,JSON-PRETTY}]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Get status from all servers.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">fikkie -h/--help</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Show the help/usage text.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="environment-variables">Environment variables</h2>
+<table>
+<thead>
+<tr>
+<th align="left">FIKKIE_BASE_DIR <em>(default: "~/.fikkie")</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Fikkie's working directory.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">FIKKIE_CONFIG <em>(default: "~/.fikkie/config.yaml")</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The configuration file.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">FIKKIE_BROKER_DIR <em>(default: "~/.fikkie/broker")</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Celery broker data directory.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">FIKKIE_DB_FILENAME <em>(default: "~/.fikkie/db.json")</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The database file.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">FIKKIE_LOG_FILE <em>(default: "~/.fikkie/db.json")</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The daemon log file.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">FIKKIE_PID_FILE <em>(default: "~/.fikkie/fikkie.pid")</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The PID file.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-options">Configuration options</h2>
+<table>
+<thead>
+<tr>
+<th align="left">heartbeat.enable <em>(default: True)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Heartbeat is enabled if True.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">heartbeat.timezone <em>(default: "UTC")</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The schedule timezone.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">heartbeat.schedule.minute <em>(default: 0)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Minute on which the heartbeat is triggered.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">heartbeat.schedule.hour <em>(default: 12)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Hour on which the heartbeat is triggered.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">heartbeat.schedule.day_of_week <em>(default: '</em>')*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Day(s) of the week (0 = Sunday, 6 = Saturday) on which the heartbeat is triggered.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">heartbeat.schedule.day_of_month <em>(default: '</em>')*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Day(s) of the month (0-31) on which the heartbeat is triggered.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="language-yaml">heartbeat:
+  timezone: 'Europe/Amsterdam'
+  schedule:
+    hour: 13
+    minute: 37
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">ssh.username <em>(default: "fikkie")</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The SSH login username.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="language-yaml">ssh:
+  username: fikkie
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">servers.HOSTNAME.description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">A human-readable description of the check.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">servers.HOSTNAME.command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The command to execute.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">servers.HOSTNAME.expected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The expected stdout output.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="language-yaml">servers:
+  primary.foo.com:
+    - description: 'MariaDB'
+      command: 'sudo systemctl status mariadb | grep &quot;Active: active&quot; -c'
+      expected: '1'
+    - description: 'HTTP code foo.com'
+      command: 'curl -s -o /dev/null -w &quot;%{http_code}&quot; foo.com'
+      expected: '200'
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">notifiers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">A list of notifier objects. Parameters differ per notifier.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="language-yaml">notifiers:
+  - type: telegram
+    token: '1234:abcd'
+    chat_id: 1234
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">[<code>type = discord</code>] notifiers.token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The Discord bot token.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">[<code>type = discord</code>] notifiers.channel_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The Discord channel ID to post notifications to.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="language-yaml">notifiers:
+  - type: discord
+    token: 'foobarbaz'
+    channel_id: 1234
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">[<code>type = email</code>] notifiers.recipient</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The e-mail address to send notifications to.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">[<code>type = email</code>] notifiers.email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The e-mail address which fikkie uses to send.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">[<code>type = email</code>] notifiers.password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The password needed to login to the SMTP server.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">[<code>type = email</code>] notifiers.smtp_server</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The SMTP server.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">[<code>type = email</code>] notifiers.smtp_port <em>(default: 465)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The port on which the SMTP server listens.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="language-yaml">notifiers:
+  - type: email
+    recipient: 'foo@hotmail.com'
+    email: 'foo@gmail.com'
+    password: 'v3rys3cr3t'
+    smtp_server: 'smtp.gmail.com'
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">[<code>type = slack</code>] notifiers.token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The Slack bot token.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">[<code>type = slack</code>] notifiers.channel_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The channel ID that fikkie sends its notifications to.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="language-yaml">notifiers:
+  - type: slack
+    token: 'xoxb-foobarbaz'
+    channel_id: 'C0*******'
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">[<code>type = telegram</code>] notifiers.token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The Telegram bot token.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">[<code>type = telegram</code>] notifiers.chat_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">The chat ID that fikkie sends its notifications to.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="language-yaml">notifiers:
+  - type: telegram
+    token: '1234:abcd'
+    chat_id: 1234
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../development/" class="btn btn-neutral" title="Development"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../development/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
