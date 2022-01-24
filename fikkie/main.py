@@ -1,9 +1,8 @@
 from celery import Celery
-from celery.schedules import crontab
 
 import os
 
-from .config import BROKER_DIR
+from .config import BROKER_DIR, get_schedule
 from .watchdog import WatchDog
 
 
@@ -22,13 +21,7 @@ app.conf.update(
         "accept_content": ["json"],
     }
 )
-app.conf.beat_schedule = {
-    "tick": {"task": "fikkie.main.tick", "schedule": 60},
-    "heartbeat": {
-        "task": "fikkie.main.heartbeat",
-        "schedule": crontab(hour=12, minute=0),  # NOTE: This is UTC 12:00
-    },
-}
+app.conf.beat_schedule, app.conf.timezone = get_schedule()
 
 
 @app.task

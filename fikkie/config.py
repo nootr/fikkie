@@ -2,6 +2,8 @@ import logging
 import os
 import yaml
 
+from celery.schedules import crontab
+
 
 __all__ = ["BASE_DIR", "CONFIG_FILE", "BROKER_DIR", "CONFIG", "DB_FILENAME"]
 
@@ -19,8 +21,35 @@ def load_config() -> dict:  # pragma: no cover - no complexity here
         with open(CONFIG_FILE, "r") as f:
             return yaml.safe_load(f) or {}
     except FileNotFoundError as e:
-        logging.warning("Please run `fikkie init`.")
-        exit(1)
+        raise FileNotFoundError("Could not find config file, please run `fikkie init`.")
     except yaml.YAMLError as e:
         logging.error(f"Could not parse config: {e}")
         exit(1)
+
+
+def get_schedule() -> tuple:
+    """Returns the Celery schedule and timezone."""
+    try:
+        config = load_config()
+    except FileNotFoundError:  # pragma: no cover - no complexity here
+        config = {}
+
+    heartbeat_config = config.get("heartbeat", {})
+
+    timezone = heartbeat_config.get("timezone", "UTC")
+    schedule = {"tick": {"task": "fikkie.main.tick", "schedule": 60}}
+
+    if heartbeat_config.get("enable", True):
+        heartbeat_schedule_config = heartbeat_config.get("schedule", {})
+        heartbeat_schedule = {
+            "minute": heartbeat_schedule_config.get("minute", 0),
+            "hour": heartbeat_schedule_config.get("hour", 12),
+            "day_of_week": heartbeat_schedule_config.get("day_of_week", "*"),
+            "day_of_month": heartbeat_schedule_config.get("day_of_month", "*"),
+        }
+        schedule["heartbeat"] = {
+            "task": "fikkie.main.heartbeat",
+            "schedule": crontab(**heartbeat_schedule),
+        }
+
+    return schedule, timezone
