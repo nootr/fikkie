@@ -23,6 +23,7 @@
 * [Contributing](#contributing)
 * [Changelog](https://github.com/nootr/fikkie/blob/main/CHANGELOG.md)
 
+
 ## Introduction
 
 Why use fikkie?
@@ -36,6 +37,7 @@ Telegram)
 Simply specify which commands should be run on which servers and what output is
 expected, and fikkie will let you know when something's wrong.
 
+
 ## Installation
 
 Install fikkie using pip and initialize fikkie:
@@ -45,19 +47,16 @@ pip install fikkie
 fikkie init
 ```
 
+
 ## Config example
 
 The fikkie configuration file is placed at `~/.fikkie/config.yaml` by default
 and could look something like this:
 
 ```yaml
----
-ssh:
-  username: fikkie
-
 servers:
   primary.foo.com:
-    - description: 'MariaDB'
+    - description: 'MariaDB status'
       command: 'sudo systemctl status mariadb | grep "Active: active" -c'
       expected: '1'
     - description: 'HTTP code foo.com'
@@ -69,6 +68,7 @@ notifiers:
     token: '1234:abcd'
     chat_id: 1234
 ```
+
 
 ## Contributing
 
