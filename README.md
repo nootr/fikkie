@@ -1,6 +1,6 @@
 # 🔥 Fikkie
 
-> The simplest tool for lightweight monitoring over SSH, compatible with all your
+> The easiest tool for lightweight monitoring over SSH, compatible with all your
 > favorite messengers!
 
 [![CI/CD](https://github.com/nootr/fikkie/actions/workflows/main.yml/badge.svg)](https://github.com/nootr/fikkie/actions)
