@@ -14,6 +14,7 @@
 * [Setting up a notifier](./notifiers)
   * [Discord notifier](./notifiers#discord-notifier)
   * [E-mail notifier](./notifiers#e-mail-notifier)
+  * [Slack notifier](./notifiers#slack-notifier)
   * [Telegram notifier](./notifiers#telegram-notifier)
 
 
@@ -178,6 +179,23 @@ notifiers:
     email: 'foo@gmail.com'
     password: 'v3rys3cr3t'
     smtp_server: 'smtp.gmail.com'
+```
+
+| [`type = slack`] notifiers.token |
+|:---------------------------------|
+| The Slack bot token.             |
+
+| [`type = slack`] notifiers.channel_id                  |
+|:-------------------------------------------------------|
+| The channel ID that fikkie sends its notifications to. |
+
+Example:
+
+```yaml
+notifiers:
+  - type: slack
+    token: 'xoxb-foobarbaz'
+    chat_id: 'C0*******'
 ```
 
 | [`type = telegram`] notifiers.token |

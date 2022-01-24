@@ -14,6 +14,7 @@
 * [Setting up a notifier](#)
   * [Discord notifier](#discord-notifier)
   * [E-mail notifier](#e-mail-notifier)
+  * [Slack notifier](#slack-notifier)
   * [Telegram notifier](#telegram-notifier)
 
 
@@ -70,6 +71,32 @@ notifiers:
 ```
 
 Note that for this to work with GMail, you would first need to create an App Password.
+
+### Slack notifier
+
+Create a Slack bot by following these steps:
+
+* Visit [the Slack Apps page](https://api.slack.com/apps).
+* Create a new App and select the "From scratch" option.
+* Name the App and pick the workspace in which the bot must send notifications.
+* Go to "OAuth & Permissions".
+* Scroll down to the "Scopes" section and add a `chat:write` OAuth Scope for bots.
+* Now scroll up and click on "Install to Workspace".
+* After allowing the permissions, copy the token under "Bot User OAuth Token".
+* Finally, return to Slack, select the newly added App and click on the name of the Bot.
+* Click on "Add this Bot to a channel" to, well, add it to a channel!
+
+Now add the following lines to your fikkie configuration:
+
+```yaml
+notifiers:
+  - type: slack
+    token: 'xoxb-foobarbaz'
+    channel_id: 'C0******'
+```
+
+The Slack notifier uses the `slack_sdk` package as a dependency, so make sure you
+install that as well.
 
 ### Telegram notifier
 

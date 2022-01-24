@@ -19,6 +19,7 @@
 - [x] Add mypy to CI/CD pipeline
 - [x] Add output formats for `fikkie status`
 - [x] Add CLI parameter to set Celery loglevel
-- [ ] Add notifiers
-- [ ] * Slack
+- [x] Add notifiers
+- [x] * Slack
 - [x] * Discord
+- [ ] Automagically push Docker image in CI/CD

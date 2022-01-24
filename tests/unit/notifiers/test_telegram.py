@@ -2,6 +2,10 @@ import pytest
 
 
 def test_notify(telegram_notifier, mock_bot):
-    telegram_notifier.notify("Lorem ipsum.")
+    text = "Lorem ipsum."
 
-    mock_bot.sendMessage.assert_called()
+    telegram_notifier.notify(text)
+
+    mock_bot.sendMessage.assert_called_with(
+        chat_id=telegram_notifier._chat_id, text=text
+    )
