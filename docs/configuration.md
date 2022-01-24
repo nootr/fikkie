@@ -14,6 +14,7 @@
 * [Setting up a notifier](./notifiers)
   * [Discord notifier](./notifiers#discord-notifier)
   * [E-mail notifier](./notifiers#e-mail-notifier)
+  * [Slack notifier](./notifiers#slack-notifier)
   * [Telegram notifier](./notifiers#telegram-notifier)
 
 

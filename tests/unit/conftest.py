@@ -4,11 +4,17 @@ import sys
 from fikkie.check import Check
 from fikkie.notifiers.discord import DiscordNotifier
 from fikkie.notifiers.email import EmailNotifier
+from fikkie.notifiers.slack import SlackNotifier
 from fikkie.notifiers.telegram import TelegramNotifier
 from fikkie.watchdog import WatchDog
 
 
 # Imports
+
+
+@pytest.fixture
+def mock_slack_sdk_import(mocker):
+    sys.modules["slack_sdk"] = mocker.Mock()
 
 
 @pytest.fixture
@@ -138,6 +144,12 @@ def email_notifier(mocker, mock_smtp_server):
         smtp_server="foo.bar",
         smtp_port=1337,
     )
+
+
+@pytest.fixture
+def slack_notifier(mocker, mock_bot, mock_slack_sdk_import):
+    mocker.patch("slack_sdk.WebClient", return_value=mock_bot)
+    yield SlackNotifier(token="foo", channel_id="bar")
 
 
 @pytest.fixture
