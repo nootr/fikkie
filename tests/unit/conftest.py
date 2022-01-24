@@ -31,8 +31,9 @@ def mock_hikari_import(mocker):
 
 
 @pytest.fixture
-def mock_config():
+def mock_config_data():
     yield {
+        "heartbeat": {"schedule": {"hour": 13, "minute": 37}},
         "servers": {
             "foo.bar": [
                 {
@@ -50,6 +51,13 @@ def mock_config():
             }
         ],
     }
+
+
+@pytest.fixture
+def mock_config_no_heartbeat_data(mock_config_data):
+    config = mock_config_data
+    config["heartbeat"] = {"enable": False}
+    yield config
 
 
 @pytest.fixture
@@ -120,7 +128,6 @@ def check(mocker, mock_check_status, mock_ssh_output):
 
 @pytest.fixture
 def watchdog(mocker, mock_config, mock_notifier, check):
-    mocker.patch("fikkie.watchdog.load_config", return_value=mock_config)
     mocker.patch("fikkie.watchdog.Notifier", return_value=mock_notifier)
     mocker.patch("fikkie.watchdog.Check", return_value=check)
     yield WatchDog()
@@ -184,3 +191,16 @@ def awaitable_magicmock(mocker):
         pass
 
     mocker.MagicMock.__await__ = lambda x: _async_method().__await__()
+
+
+@pytest.fixture
+def mock_config(mocker, mock_config_data):
+    mocker.patch("fikkie.config.load_config", return_value=mock_config_data)
+    mocker.patch("fikkie.watchdog.load_config", return_value=mock_config_data)
+
+
+@pytest.fixture
+def mock_config_no_heartbeat(mocker, mock_config_no_heartbeat_data):
+    mocker.patch(
+        "fikkie.config.load_config", return_value=mock_config_no_heartbeat_data
+    )

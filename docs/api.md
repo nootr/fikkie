@@ -84,6 +84,40 @@
 
 ### Configuration options
 
+| heartbeat.enable *(default: True)* |
+|:-----------------------------------|
+| Heartbeat is enabled if True.      |
+
+| heartbeat.timezone *(default: "UTC")* |
+|:--------------------------------------|
+| The schedule timezone.                |
+
+| heartbeat.schedule.minute *(default: 0)*    |
+|:--------------------------------------------|
+| Minute on which the heartbeat is triggered. |
+
+| heartbeat.schedule.hour *(default: 12)*   |
+|:------------------------------------------|
+| Hour on which the heartbeat is triggered. |
+
+| heartbeat.schedule.day_of_week *(default: '*')*                                    |
+|:-----------------------------------------------------------------------------------|
+| Day(s) of the week (0 = Sunday, 6 = Saturday) on which the heartbeat is triggered. |
+
+| heartbeat.schedule.day_of_month *(default: '*')*                |
+|:----------------------------------------------------------------|
+| Day(s) of the month (0-31) on which the heartbeat is triggered. |
+
+Example:
+
+```yaml
+heartbeat:
+  timezone: 'Europe/Amsterdam'
+  schedule:
+    hour: 13
+    minute: 37
+```
+
 | ssh.username *(default: "fikkie")* |
 |:-----------------------------------|
 | The SSH login username.            |

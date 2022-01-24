@@ -19,9 +19,28 @@ except ImportError:  # pragma: no cover - no need to test Python's stdlib
 
 
 CONFIG_TEMPLATE = """---
+## Heartbeat schedule
+# Fikkie will notify you periodically about it still being alive. This is where you
+# could change the schedule or disable it altogether.
+#
+# Note that the `minute`, `hour`, `day_of_week` and `day_of_month` values are either (a
+# list of) integers or Celery Crontab patterns. Please read the Celery documentation for
+# more info.
+#
+# Example:
+#
+# heartbeat:
+#   enable: True
+#   timezone: 'UTC'
+#   schedule:
+#     minute: 0
+#     hour: 12
+#     day_of_week: '*'  # Sunday = 0 and Saturday = 6
+#     day_of_month: '*'
+
 ## SSH config
-# Fikkie needs to know which user to use to login into the servers. This will
-# default to "fikkie".
+# Fikkie needs to know which user to use to login into the servers. This will default to
+# "fikkie".
 #
 # Example:
 #
@@ -29,8 +48,7 @@ CONFIG_TEMPLATE = """---
 #   username: fikkie
 
 ## Servers
-# This is where you specify the commands fikkie needs to execute over SSH to
-# test them.
+# This is where you specify the commands fikkie needs to execute over SSH to test them.
 #
 # Example:
 #
@@ -44,8 +62,8 @@ CONFIG_TEMPLATE = """---
 #       expected: '200'
 
 ## Notifiers
-# If you want fikkie to notify state changes/problems, you'll need to specify
-# the notifiers here.
+# If you want fikkie to notify state changes/problems, you'll need to specify the
+# notifiers here.
 #
 # Example:
 #
