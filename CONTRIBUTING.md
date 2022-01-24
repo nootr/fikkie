@@ -1,18 +1,19 @@
 # Contribution guidelines
 
-Contributions to Fikkie are more than welcome! Please send your feature requests,
-bugfixes or patches.
+First of all, thank you very much for taking the time to contribute! :heart: Whether
+it's a feature request, bug/issue or a patch, it's all very much appreciated.
 
-As usual, just fork this repository and create a Pull Request if you've written a patch
-or create an issue in GitHub if you've found a bug or have a feature request.
+To contribute, just fork this repository and create a Pull Request if you've written a
+patch. Create an issue in GitHub if you've found a bug or have a feature request.
 
 
 ## Fikkie philosophy
 
 Fikkie was created to be simple, to be more specific:
 
-**It should be as easy to install and configure as possible.** It should not be much more work than
-having set up an SSH connection to a host using a private key or creating a Telegram bot.
+**It should be as easy to install and configure as possible.** It should not be much
+more work than having set up an SSH connection to a host using a private key or creating
+a Telegram bot.
 
 **It should be as lightweight as possible.** Fikkie should be able to run on your
 *busybox*-powered toaster without any resource problems.
@@ -31,6 +32,12 @@ add the following info:
 * Fikkie configuration
 * Python version
 * Operating system
+
+
+## Setting up a development environment
+
+The fikkie documentation contains [a guide on how to set up a development
+environment](https://nootr.github.io/fikkie/development).
 
 
 ## Code conventions

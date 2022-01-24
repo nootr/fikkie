@@ -27,6 +27,12 @@ or the [PyPi page](https://pypi.org/project/fikkie).
   * [Telegram notifier](./notifiers#telegram-notifier)
 
 
+## Developer's guide
+
+* [Setting up a development environment](./development#setting-up-a-development-environment)
+* [Useful commands](./development#useful-commands)
+
+
 ## API Reference
 
 * [API Reference](./api)

@@ -72,8 +72,9 @@ notifiers:
 
 ## Contributing
 
-Contributions to fikkie are more than welcome!
+Contributions to fikkie are more than welcome! :heart:
 
 Please visit the
 [contribution guidelines](https://github.com/nootr/fikkie/blob/main/CONTRIBUTING.md)
-for more info.
+for more info. Also, the [Developer's guide](https://nootr.github.io/fikkie/development)
+might be useful if you want to contribute code.
