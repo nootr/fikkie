@@ -1,42 +1,6 @@
 # API reference
 
-* * *
-
-## User's guide
-
-* [About fikkie](./index)
-* [Installation](./installation)
-* [Configuration](./configuration)
-  * [Setting up SSH](./configuration#setting-up-ssh)
-  * [(Optional) Adding user](./configuration#adding-user)
-  * [Setting up fikkie](./configuration#setting-up-fikkie)
-  * [Running fikkie as a daemon](./configuration#running-fikkie-as-a-daemon)
-* [Setting up a notifier](./notifiers)
-  * [Discord notifier](./notifiers#discord-notifier)
-  * [E-mail notifier](./notifiers#e-mail-notifier)
-  * [Slack notifier](./notifiers#slack-notifier)
-  * [Telegram notifier](./notifiers#telegram-notifier)
-
-
-## Developer's guide
-
-* [Setting up a development environment](./development#setting-up-a-development-environment)
-* [Useful commands](./development#useful-commands)
-
-
-## API Reference
-
-* [API Reference](#)
-  * [CLI flags](#cli-flags)
-  * [Environment variables](#environment-variables)
-  * [Configuration options](#configuration-options)
-
-
-* * *
-
-## API reference
-
-### CLI flags
+## CLI flags
 
 | fikkie init                     |
 |:--------------------------------|
@@ -62,7 +26,7 @@
 |:--------------------------|
 | Show the help/usage text. |
 
-### Environment variables
+## Environment variables
 
 | FIKKIE_BASE_DIR *(default: "~/.fikkie")* |
 |:-----------------------------------------|
@@ -88,7 +52,7 @@
 |:----------------------------------------------------|
 | The PID file.                                       |
 
-### Configuration options
+## Configuration options
 
 | heartbeat.enable *(default: True)* |
 |:-----------------------------------|
