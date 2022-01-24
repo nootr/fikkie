@@ -195,7 +195,7 @@ Example:
 notifiers:
   - type: slack
     token: 'xoxb-foobarbaz'
-    chat_id: 'C0*******'
+    channel_id: 'C0*******'
 ```
 
 | [`type = telegram`] notifiers.token |
