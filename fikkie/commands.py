@@ -12,10 +12,9 @@ from fikkie.main import app
 from fikkie.watchdog import WatchDog
 
 try:
-    # Python 3.8+
     from typing import Literal
 except ImportError:  # pragma: no cover - no need to test Python's stdlib
-    # Python 3.7
+    # NOTE: The typing library of Python 3.7 does not contain Literal
     from typing_extensions import Literal  # type: ignore
 
 

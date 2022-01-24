@@ -56,7 +56,8 @@ class Bar:
 ```
 
 Also, aim to write your code so that it's readable enough to eliminate the need for
-comments. When you do write a comment, prefix it with `TODO:` or `NOTE:`.
+comments. When you do write a comment and it's not an instruction for `black` or
+`mypy`, prefix it with `TODO:` or `NOTE:`.
 
 
 ## Tests

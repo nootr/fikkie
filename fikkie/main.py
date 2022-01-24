@@ -26,7 +26,7 @@ app.conf.beat_schedule = {
     "tick": {"task": "fikkie.main.tick", "schedule": 60},
     "heartbeat": {
         "task": "fikkie.main.heartbeat",
-        "schedule": crontab(hour=12, minute=0),  # UTC 12:00
+        "schedule": crontab(hour=12, minute=0),  # NOTE: This is UTC 12:00
     },
 }
 

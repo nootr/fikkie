@@ -12,7 +12,6 @@ class TelegramNotifier(BaseNotifier):
     TYPE = "telegram"
 
     def __init__(self, token: str, chat_id: str):
-        # Only import the telegram dependency when it's needed
         try:
             from telegram import Bot
         except ModuleNotFoundError:  # pragma: no cover - no complexity here

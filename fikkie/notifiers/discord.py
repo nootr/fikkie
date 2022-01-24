@@ -18,7 +18,6 @@ class DiscordNotifier(BaseNotifier):
 
     async def _async_notify(self, text: str) -> None:
         """Sends a message asynchronous."""
-        # Only import the hikari dependency when it's needed
         try:
             from hikari import RESTApp
         except ModuleNotFoundError:  # pragma: no cover - no complexity here
