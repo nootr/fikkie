@@ -1,42 +1,6 @@
 # Setting up a notifier
 
-* * *
-
-## User's guide
-
-* [About fikkie](./index)
-* [Installation](./installation)
-* [Configuration](./configuration)
-  * [Setting up SSH](./configuration#setting-up-ssh)
-  * [(Optional) Adding user](./configuration#adding-user)
-  * [Setting up fikkie](./configuration#setting-up-fikkie)
-  * [Running fikkie as a daemon](./configuration#running-fikkie-as-a-daemon)
-* [Setting up a notifier](#)
-  * [Discord notifier](#discord-notifier)
-  * [E-mail notifier](#e-mail-notifier)
-  * [Slack notifier](#slack-notifier)
-  * [Telegram notifier](#telegram-notifier)
-
-
-## Developer's guide
-
-* [Setting up a development environment](./development#setting-up-a-development-environment)
-* [Useful commands](./development#useful-commands)
-
-
-## API Reference
-
-* [API Reference](./api)
-  * [CLI flags](./api#cli-flags)
-  * [Environment variables](./api#environment-variables)
-  * [Configuration options](./api#configuration-options)
-
-
-* * *
-
-## Setting up a notifier
-
-### Discord notifier
+## Discord notifier
 
 Creating a Discord bot as a notifier is pretty straightforward:
 
@@ -61,7 +25,8 @@ notifiers:
 The Discord notifier uses the `hikari` package as a dependency, so make sure you install
 that as well.
 
-### E-mail notifier
+
+## E-mail notifier
 
 The e-mail notifier needs to login on an SMTP server. In this example, GMail's SMTP
 server is used to mail to a hotmail recipient.
@@ -78,7 +43,8 @@ notifiers:
 
 Note that for this to work with GMail, you would first need to create an App Password.
 
-### Slack notifier
+
+## Slack notifier
 
 Create a Slack bot by following these steps:
 
@@ -104,7 +70,8 @@ notifiers:
 The Slack notifier uses the `slack_sdk` package as a dependency, so make sure you
 install that as well.
 
-### Telegram notifier
+
+## Telegram notifier
 
 Talk to @BotFather to create a bot and add the following lines to your fikkie
 configuration:

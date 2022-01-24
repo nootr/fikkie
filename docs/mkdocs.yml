@@ -1,0 +1,10 @@
+site_name: Fikkie documentation
+site_url: https://nootr.github.io/fikkie/
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Configuration: configuration.md
+  - Notifiers: notifiers.md
+  - Development: development.md
+  - API Reference: api.md
+theme: readthedocs
