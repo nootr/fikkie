@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="fikkie",
-    version="0.4.0",
+    version="0.5.0",
     description=(
         "The simplest tool for lightweight monitoring over SSH, compatible with all "
         "your favorite messengers."
