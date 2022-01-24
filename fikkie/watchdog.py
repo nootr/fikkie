@@ -48,7 +48,7 @@ class WatchDog:
                     self.notify(f"{check.host}: {check.description} OK", "🟢")
                 else:
                     self.notify(
-                        f"{check.host}: {check.description} NOT OK\n{stdout} (stderr: {stderr})",
+                        f"{check.host}: {check.description} NOT OK\n`{stdout}` (stderr: `{stderr}`)",
                         "🔴",
                     )
 
