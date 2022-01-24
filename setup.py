@@ -6,12 +6,15 @@ with open("README.md", "r") as f:
 setup(
     name="fikkie",
     version="0.4.0",
-    description="Lightweight monitoring tool",
+    description=(
+        "The simplest tool for lightweight monitoring over SSH, compatible with all "
+        "your favorite messengers."
+    ),
     license="MIT",
     long_description=long_description,
     author="Joris Hartog (@nootr)",
     long_description_content_type="text/markdown",
-    url="https://nootr.github.io/fikkie/",
+    url="https://github.com/nootr/fikkie/",
     packages=["fikkie", "fikkie.notifiers"],
     scripts=["scripts/fikkie"],
     install_requires=[

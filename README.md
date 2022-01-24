@@ -1,6 +1,7 @@
 # 🔥 Fikkie
 
-> A simple lightweight watchdog which monitors external services over SSH.
+> The simplest tool for lightweight monitoring over SSH, compatible with all your
+> favorite messengers!
 
 [![CI/CD](https://github.com/nootr/fikkie/actions/workflows/main.yml/badge.svg)](https://github.com/nootr/fikkie/actions)
 [![Coverage Status](https://coveralls.io/repos/github/nootr/fikkie/badge.svg?branch=main)](https://coveralls.io/github/nootr/fikkie?branch=main)
