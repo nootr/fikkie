@@ -53,6 +53,8 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#running-fikkie-in-a-docker-container">Running fikkie in a Docker container</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -111,6 +113,15 @@
 fikkie init
 </code></pre>
 <p>Fikkie works with Python 3.7 or higher.</p>
+<h2 id="running-fikkie-in-a-docker-container">Running fikkie in a Docker container</h2>
+<p>There is a Docker image for fikkie available, so just run it while binding your
+configuration file and you're ready.</p>
+<pre><code class="language-bash">docker run \
+  --mount type=bind,source=${PWD}/config.yaml,target=/root/.fikkie/config.yaml \
+  nootr/fikkie:latest
+</code></pre>
+<p>This snippet assumes <code>config.yaml</code> lives in your current directory. If it does not,
+please change the value of <code>source=</code>.</p>
               
             </div>
           </div>
