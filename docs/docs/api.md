@@ -54,6 +54,8 @@
 
 ## Configuration options
 
+### Heartbeat
+
 | heartbeat.enable *(default: True)* |
 |:-----------------------------------|
 | Heartbeat is enabled if True.      |
@@ -88,6 +90,8 @@ heartbeat:
     minute: 37
 ```
 
+### SSH
+
 | ssh.username *(default: "fikkie")* |
 |:-----------------------------------|
 | The SSH login username.            |
@@ -98,6 +102,8 @@ Example:
 ssh:
   username: fikkie
 ```
+
+### Servers
 
 | servers.HOSTNAME.description               |
 |:-------------------------------------------|
@@ -124,6 +130,8 @@ servers:
       expected: '200'
 ```
 
+### Notifiers
+
 | notifiers                                                   |
 |:------------------------------------------------------------|
 | A list of notifier objects. Parameters differ per notifier. |
@@ -136,6 +144,8 @@ notifiers:
     token: '1234:abcd'
     chat_id: 1234
 ```
+
+#### Discord notifier
 
 | [`type = discord`] notifiers.token |
 |:-----------------------------------|
@@ -153,6 +163,8 @@ notifiers:
     token: 'foobarbaz'
     channel_id: 1234
 ```
+
+#### E-mail notifier
 
 | [`type = email`] notifiers.recipient         |
 |:---------------------------------------------|
@@ -185,6 +197,8 @@ notifiers:
     smtp_server: 'smtp.gmail.com'
 ```
 
+#### Slack notifier
+
 | [`type = slack`] notifiers.token |
 |:---------------------------------|
 | The Slack bot token.             |
@@ -201,6 +215,8 @@ notifiers:
     token: 'xoxb-foobarbaz'
     channel_id: 'C0*******'
 ```
+
+#### Telegram notifier
 
 | [`type = telegram`] notifiers.token |
 |:------------------------------------|
