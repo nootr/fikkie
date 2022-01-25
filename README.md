@@ -8,7 +8,7 @@
 [![PyPI license](https://img.shields.io/pypi/l/fikkie.svg)](https://github.com/nootr/fikkie/blob/main/LICENSE.md)
 [![PyPi version](https://badgen.net/pypi/v/fikkie/)](https://pypi.org/project/fikkie)
 [![Downloads](https://pepy.tech/badge/fikkie)](https://pepy.tech/project/fikkie)
-[![Docker pulls](https://img.shields.io/docker/pulls/nootr/fikkie)](https://hub.docker.com/repository/docker/nootr/fikkie)
+[![Docker pulls](https://img.shields.io/docker/pulls/nootr/fikkie)](https://hub.docker.com/r/nootr/fikkie)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![macOS](https://svgshare.com/i/ZjP.svg)](https://svgshare.com/i/ZjP.svg)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -54,7 +54,7 @@ Or use Docker!
 ```bash
 docker run \
   --mount type=bind,source=${PWD}/config.yaml,target=/root/.fikkie/config.yaml \
-  nootr/fikkie:latest
+  nootr/fikkie
 ```
 
 
