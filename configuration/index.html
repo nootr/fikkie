@@ -115,9 +115,9 @@
               
                 <h1 id="configuring-fikkie">Configuring fikkie</h1>
 <h2 id="setting-up-ssh">Setting up SSH</h2>
-<p>Fikkie authenticates with SSH using a key (without password), so make sure you
-generate a key using <code>ssh-keygen</code> and copy the public key to
-<code>~/.ssh/authorized_keys</code> on the target host(s) if you haven't already.</p>
+<p>You probably already have set this up, so if you can SSH to the host(s) you want to
+monitor without using a password, you're fine. If not, please generate a key using
+<code>ssh-keygen</code> and copy the public key to <code>~/.ssh/authorized_keys</code> on the target host(s).</p>
 <h2 id="adding-user">Adding user</h2>
 <p>This step is optional. However, it might be a good idea to create a separate
 user for fikkie on the target host(s) with limited sudo permissions.</p>
