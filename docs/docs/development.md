@@ -27,8 +27,15 @@ pip install -r requirements.txt
 pip install -r test-requirements.txt
 ```
 
-Finally, fikkie will need a configuration file to send notifications. Create a file at
-`~/.fikkie/config.yaml` with the following contents:
+Finally, fikkie will need a configuration file to send notifications. We could use
+fikkie to setup it's working directory in ~/.fikkie.
+
+```bash
+pip install .
+fikkie init
+```
+
+Now edit `~/.fikkie/config.yaml`:
 
 ```yaml
 ---
