@@ -17,3 +17,6 @@ functional:
 
 build:
 	python -m build
+
+image:
+	docker build --tag fikkie:latest .

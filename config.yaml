@@ -1,0 +1,6 @@
+---
+heartbeat:
+  schedule:
+    minute: '*'
+    hour: '*'
+  timezone: 'Europe/Amsterdam'
