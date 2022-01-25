@@ -2,9 +2,9 @@
 
 ## Setting up SSH
 
-Fikkie authenticates with SSH using a key (without password), so make sure you
-generate a key using `ssh-keygen` and copy the public key to
-`~/.ssh/authorized_keys` on the target host(s) if you haven't already.
+You probably already have set this up, so if you can SSH to the host(s) you want to
+monitor without using a password, you're fine. If not, please generate a key using
+`ssh-keygen` and copy the public key to `~/.ssh/authorized_keys` on the target host(s).
 
 
 ## Adding user
