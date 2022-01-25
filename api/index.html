@@ -74,6 +74,26 @@
     <li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#configuration-options">Configuration options</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#heartbeat">Heartbeat</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ssh">SSH</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#servers">Servers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#notifiers">Notifiers</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#discord-notifier">Discord notifier</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#e-mail-notifier">E-mail notifier</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#slack-notifier">Slack notifier</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#telegram-notifier">Telegram notifier</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
     </li>
     </ul>
                     </li>
@@ -259,6 +279,7 @@
 </tbody>
 </table>
 <h2 id="configuration-options">Configuration options</h2>
+<h3 id="heartbeat">Heartbeat</h3>
 <table>
 <thead>
 <tr>
@@ -338,6 +359,7 @@
     hour: 13
     minute: 37
 </code></pre>
+<h3 id="ssh">SSH</h3>
 <table>
 <thead>
 <tr>
@@ -354,6 +376,7 @@
 <pre><code class="language-yaml">ssh:
   username: fikkie
 </code></pre>
+<h3 id="servers">Servers</h3>
 <table>
 <thead>
 <tr>
@@ -400,6 +423,7 @@
       command: 'curl -s -o /dev/null -w &quot;%{http_code}&quot; foo.com'
       expected: '200'
 </code></pre>
+<h3 id="notifiers">Notifiers</h3>
 <table>
 <thead>
 <tr>
@@ -418,6 +442,7 @@
     token: '1234:abcd'
     chat_id: 1234
 </code></pre>
+<h4 id="discord-notifier">Discord notifier</h4>
 <table>
 <thead>
 <tr>
@@ -448,6 +473,7 @@
     token: 'foobarbaz'
     channel_id: 1234
 </code></pre>
+<h4 id="e-mail-notifier">E-mail notifier</h4>
 <table>
 <thead>
 <tr>
@@ -516,6 +542,7 @@
     password: 'v3rys3cr3t'
     smtp_server: 'smtp.gmail.com'
 </code></pre>
+<h4 id="slack-notifier">Slack notifier</h4>
 <table>
 <thead>
 <tr>
@@ -546,6 +573,7 @@
     token: 'xoxb-foobarbaz'
     channel_id: 'C0*******'
 </code></pre>
+<h4 id="telegram-notifier">Telegram notifier</h4>
 <table>
 <thead>
 <tr>
