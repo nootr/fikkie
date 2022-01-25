@@ -125,8 +125,12 @@ source venv/bin/activate
 <pre><code class="language-bash">pip install -r requirements.txt
 pip install -r test-requirements.txt
 </code></pre>
-<p>Finally, fikkie will need a configuration file to send notifications. Create a file at
-<code>~/.fikkie/config.yaml</code> with the following contents:</p>
+<p>Finally, fikkie will need a configuration file to send notifications. We could use
+fikkie to setup it's working directory in ~/.fikkie.</p>
+<pre><code class="language-bash">pip install .
+fikkie init
+</code></pre>
+<p>Now edit <code>~/.fikkie/config.yaml</code>:</p>
 <pre><code class="language-yaml">---
 heartbeat:
   schedule:
