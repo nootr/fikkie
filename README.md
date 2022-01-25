@@ -8,6 +8,7 @@
 [![PyPI license](https://img.shields.io/pypi/l/fikkie.svg)](https://github.com/nootr/fikkie/blob/main/LICENSE.md)
 [![PyPi version](https://badgen.net/pypi/v/fikkie/)](https://pypi.org/project/fikkie)
 [![Downloads](https://pepy.tech/badge/fikkie)](https://pepy.tech/project/fikkie)
+[![Docker pulls](https://img.shields.io/docker/pulls/nootr/fikkie)](https://hub.docker.com/repository/docker/nootr/fikkie)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![macOS](https://svgshare.com/i/ZjP.svg)](https://svgshare.com/i/ZjP.svg)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -34,8 +35,9 @@ Why use fikkie?
 * Fikkie notifies you using your *favorite messaging service* (e.g. e-mail, Discord or
 Telegram)
 
-Simply specify which commands should be run on which servers and what output is
-expected, and fikkie will let you know when something's wrong.
+You just need one single YAML file to configure fikkie, so simply specify which commands
+should be run on which servers and what output is expected, and fikkie will let you know
+when something's wrong.
 
 
 ## Installation
@@ -45,6 +47,14 @@ Install fikkie using pip and initialize fikkie:
 ```bash
 pip install fikkie
 fikkie init
+```
+
+Or use Docker!
+
+```bash
+docker run \
+  --mount type=bind,source=${PWD}/config.yaml,target=/root/.fikkie/config.yaml \
+  nootr/fikkie:latest
 ```
 
 
