@@ -69,6 +69,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#useful-commands">Useful commands</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notifier-checklist">Notifier checklist</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -147,6 +149,20 @@ make commands are the following three:</p>
 make lint  # Run the linter (black)
 make dev   # Run fikkie with loglevel set to DEBUG
 </code></pre>
+<h2 id="notifier-checklist">Notifier checklist</h2>
+<p>Let's say you want to extend fikkie with a notifier for your favorite chat app. These
+are the steps you want to follow to implement it:</p>
+<ul>
+<li>[ ] Setup a bot and describe the steps in <code>docs/docs/notifiers.md</code>.</li>
+<li>[ ] Create a PoC script where you send a message with this bot.</li>
+<li>[ ] Create a new FooNotifier class in <code>fikkie/notifiers/</code>, maybe use another notifier
+      (e.g. <code>fikkie/notifiers/slack.py</code>) as template.</li>
+<li>[ ] Test it.</li>
+<li>[ ] Write a unit test in <code>tests/unit/notifiers</code> and its fixtures in
+      <code>tests/unit/conftest.py</code>.</li>
+<li>[ ] Add an entry for the notifier in <code>docs/docs/api.md</code>.</li>
+</ul>
+<p>Now create a PR and share it with the world!</p>
               
             </div>
           </div>
