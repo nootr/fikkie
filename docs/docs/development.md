@@ -61,3 +61,20 @@ make unit  # Run the unit tests
 make lint  # Run the linter (black)
 make dev   # Run fikkie with loglevel set to DEBUG
 ```
+
+
+## Notifier checklist
+
+Let's say you want to extend fikkie with a notifier for your favorite chat app. These
+are the steps you want to follow to implement it:
+
+- Setup a bot and describe the steps in `docs/docs/notifiers.md`.
+- Create a PoC script where you send a message with this bot.
+- Create a new FooNotifier class in `fikkie/notifiers/`, maybe use another notifier
+  (e.g. `fikkie/notifiers/slack.py`) as template.
+- Test it.
+- Write a unit test in `tests/unit/notifiers` and its fixtures in
+  `tests/unit/conftest.py`.
+- Add an entry for the notifier in `docs/docs/api.md`.
+
+Now create a PR and share it with the world!
