@@ -24,7 +24,7 @@ setup(
         "typing_extensions==4.0.1",
     ],
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Framework :: Celery",
         "Intended Audience :: System Administrators",
         "License :: OSI Approved :: MIT License",
