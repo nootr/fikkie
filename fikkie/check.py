@@ -1,15 +1,9 @@
 import subprocess
 
 from tinydb import TinyDB, Query
-from typing import Tuple
+from typing import Literal, Tuple
 
 from .config import DB_FILENAME
-
-try:
-    from typing import Literal
-except ImportError:  # pragma: no cover - no need to test Python's stdlib
-    # NOTE: The typing library of Python 3.7 does not contain Literal
-    from typing_extensions import Literal  # type: ignore
 
 
 class Check:

@@ -10,7 +10,7 @@
 [![Downloads](https://pepy.tech/badge/fikkie)](https://pepy.tech/project/fikkie)
 [![Docker pulls](https://img.shields.io/docker/pulls/nootr/fikkie)](https://hub.docker.com/r/nootr/fikkie)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Python versions](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://pypi.python.org/pypi/fikkie/)
+[![Python versions](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://pypi.python.org/pypi/fikkie/)
 [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
 
 
