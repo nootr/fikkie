@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.3] - 2024-03-21
+### Upgraded
+- Removed Python 3.7 support
+- Added Python 3.11 support
+- Upgraded celery to 5.3.6
+- Upgraded tinydb to 4.8.0
+- Upgraded mkdocs to 1.5.3
+- Upgraded black to 24.3.0
+
 ## [0.5.2] - 2022-01-25
 ### Added
 - Also push docker images with latest tag
