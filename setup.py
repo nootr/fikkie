@@ -20,7 +20,7 @@ setup(
     install_requires=[
         "celery==5.2.2",
         "PyYAML==6.0",
-        "tinydb==4.5.2",
+        "tinydb==4.8.0",
         "typing_extensions==4.0.1",
     ],
     classifiers=[
