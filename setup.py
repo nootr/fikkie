@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="fikkie",
-    version="0.5.3",
+    version="0.5.4",
     description=(
         "The simplest tool for lightweight monitoring over SSH, compatible with all "
         "your favorite messengers."
@@ -19,7 +19,7 @@ setup(
     scripts=["scripts/fikkie"],
     install_requires=[
         "celery==5.3.6",
-        "PyYAML==5.3.1", # Issue: https://github.com/yaml/pyyaml/issues/724
+        "PyYAML==5.3.1",  # Issue: https://github.com/yaml/pyyaml/issues/724
         "tinydb==4.8.0",
         "typing_extensions==4.0.1",
     ],
