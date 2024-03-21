@@ -7,7 +7,7 @@ pip install fikkie
 fikkie init
 ```
 
-Fikkie works with Python 3.7 or higher.
+Fikkie works with Python 3.8 or higher.
 
 
 ## Running fikkie in a Docker container
