@@ -19,7 +19,7 @@ setup(
     scripts=["scripts/fikkie"],
     install_requires=[
         "celery==5.3.6",
-        "PyYAML==6.0",
+        "PyYAML==5.3.1", # Issue: https://github.com/yaml/pyyaml/issues/724
         "tinydb==4.8.0",
         "typing_extensions==4.0.1",
     ],
